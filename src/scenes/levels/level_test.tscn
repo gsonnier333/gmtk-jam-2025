@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=4 uid="uid://dbuba8oxb4o37"]
 
 [ext_resource type="Texture2D" uid="uid://c10onu3rbchef" path="res://assets/sprites/test-box.png" id="1_h0hot"]
-[ext_resource type="PackedScene" uid="uid://ba3a58qpo6ftu" path="res://scenes/player.tscn" id="2_yluh8"]
+[ext_resource type="PackedScene" uid="uid://ba3a58qpo6ftu" path="res://src/scenes/player.tscn" id="2_yluh8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yluh8"]
 texture = ExtResource("1_h0hot")
@@ -14,14 +14,14 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_yluh8")
 
-[node name="LevelTest" type="Node"]
+[node name="LevelTest" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAAAAgAAAAAAAAABAAAAAgAAAAAAAAACAAAAAgAAAAAAAAADAAAAAgAAAAAAAAAEAAAAAgAAAAAAAAD//wAAAgAAAAAAAAD+/wAAAgAAAAAAAAD9/wAAAgAAAAAAAAD8/wAAAgAAAAAAAAD7/wAAAgAAAAAAAAADAP3/AgAAAAAAAAAEAP3/AgAAAAAAAAD8//3/AgAAAAAAAAD7//3/AgAAAAAAAAD6/wAAAgAAAAAAAAAFAAAAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_jp5fc")
 
 [node name="Player" parent="." instance=ExtResource("2_yluh8")]
-position = Vector2(0, -57)
+position = Vector2(-1, -74)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -246)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ba3a58qpo6ftu"]
+[gd_scene load_steps=6 format=3 uid="uid://ba3a58qpo6ftu"]
 
 [ext_resource type="Texture2D" uid="uid://bwfmjo42p1nmc" path="res://icon.svg" id="1_3vyb7"]
-[ext_resource type="Script" uid="uid://q6vyvdf5mt4t" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://q6vyvdf5mt4t" path="res://src/scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://cvr7si7flm2fl" path="res://assets/tarot-10-wheel-of-fortune.svg" id="3_hwyk6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g2els"]
 animations = [{
@@ -21,9 +22,13 @@ size = Vector2(126, 126)
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -64)
+z_index = 1
 sprite_frames = SubResource("SpriteFrames_g2els")
 
+[node name="Shadow" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_hwyk6")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -64)
 shape = SubResource("RectangleShape2D_3vyb7")
