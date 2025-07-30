@@ -4,16 +4,19 @@ extends CharacterBody2D
 @export var speed: float = 300.0
 @export var jump_velocity: float = -700.0
 @export var reset_time_sec: float = 5.0
+@export var use_shadows_momentum: bool = false
 
 @onready var shadow: Sprite2D = %Shadow
 
 const QUEUE_TICKS: int = 5
-var player_movements_queue: PackedVector2Array = []
+var player_position_queue: PackedVector2Array = []
+var player_velocity_queue: PackedVector2Array = []
 var max_queue_size: int
 var tick_count: int = 0
+var elapsed_time: float = 0.0
 
 func _ready() -> void:
-	max_queue_size = int((Engine.get_physics_ticks_per_second() * reset_time_sec) / QUEUE_TICKS)
+	max_queue_size = int(Engine.get_physics_ticks_per_second() * reset_time_sec)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump") and is_on_floor():
@@ -21,34 +24,34 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
 		handle_escape()
 	if event.is_action("debug"):
-		print(len(player_movements_queue))
-		print(player_movements_queue)
+		print(player_velocity_queue)
 	if event.is_action("time-jump"):
-		global_position = player_movements_queue[0]
-		shadow.global_position = player_movements_queue[0]
-		player_movements_queue.clear()
+		go_to_shadow()
 
 func _process(delta: float) -> void:
-	if player_movements_queue.is_empty():
+	add_pos_to_queue(global_position, delta)
+	if player_position_queue.is_empty():
 		shadow.global_position = global_position
 	else:
-		shadow.global_position = player_movements_queue[0]
+		shadow.global_position = player_position_queue[0]
 	
 
 func _physics_process(delta: float) -> void:
 	handle_movement(delta)
-	if tick_count >= QUEUE_TICKS:
-		add_pos_to_queue(global_position)
-		tick_count = 0
-	else:
-		tick_count += 1
+	if use_shadows_momentum:
+		add_velocity_to_queue(velocity)
 	
-func add_pos_to_queue(pos: Vector2):
-	if len(player_movements_queue) < max_queue_size:
-		player_movements_queue.append(pos)
+func add_pos_to_queue(pos: Vector2, delta):
+	player_position_queue.append(pos)
+	if elapsed_time < reset_time_sec:
+		elapsed_time += delta
 	else:
-		player_movements_queue.append(pos)
-		player_movements_queue.remove_at(0)
+		player_position_queue.remove_at(0)
+
+func add_velocity_to_queue(vel: Vector2):
+	player_velocity_queue.append(vel)
+	if len(player_velocity_queue) > max_queue_size:
+		player_position_queue.remove_at(0)
 
 func handle_movement(delta) -> void:
 	# Add the gravity.
@@ -64,6 +67,16 @@ func handle_movement(delta) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()
+
+func go_to_shadow():
+	if !player_position_queue.is_empty():
+		elapsed_time = 0.0
+		global_position = player_position_queue[0]
+		shadow.global_position = player_position_queue[0]
+		if use_shadows_momentum:
+			velocity = player_velocity_queue[0]
+			player_velocity_queue.clear()
+		player_position_queue.clear()
 
 func jump():
 	velocity.y = jump_velocity

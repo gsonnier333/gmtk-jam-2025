@@ -22,6 +22,8 @@ tile_set = SubResource("TileSet_jp5fc")
 
 [node name="Player" parent="." instance=ExtResource("2_yluh8")]
 position = Vector2(-1, -74)
+reset_time_sec = 3.0
+use_shadows_momentum = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -246)
