@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 
 @export var speed: float = 300.0
+@export var acceleration: float = 40.0
 @export var jump_velocity: float = -700.0
 @export var reset_time_sec: float = 5.0
 @export var use_shadows_momentum: bool = false
@@ -51,7 +52,7 @@ func add_pos_to_queue(pos: Vector2, delta):
 func add_velocity_to_queue(vel: Vector2):
 	player_velocity_queue.append(vel)
 	if len(player_velocity_queue) > max_queue_size:
-		player_position_queue.remove_at(0)
+		player_velocity_queue.remove_at(0)
 
 func handle_movement(delta) -> void:
 	# Add the gravity.
@@ -61,10 +62,18 @@ func handle_movement(delta) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")
-	if direction:
-		velocity.x = direction * speed
+	
+	# handle movement differently in the air
+	if is_on_floor():
+		if direction:
+			velocity.x = move_toward(velocity.x, direction * speed, acceleration)
+		else:
+			velocity.x = move_toward(velocity.x, 0, acceleration)
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
+		if direction:
+			velocity.x = move_toward(velocity.x, direction * speed, acceleration/3)
+		else:
+			velocity.x = move_toward(velocity.x, 0, acceleration)
 
 	move_and_slide()
 
