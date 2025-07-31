@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var reset_time_sec: float = 5.0
 @export var use_shadows_momentum: bool = false
 
-@onready var shadow: Sprite2D = %Shadow
+@onready var shadow: AnimatedSprite2D = %Shadow
 
 const QUEUE_TICKS: int = 5
 var player_position_queue: PackedVector2Array = []
@@ -62,7 +62,12 @@ func handle_movement(delta) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")
-	
+	if direction > 0:
+		$AnimatedSprite2D.flip_h = false
+	elif direction < 0:
+		$AnimatedSprite2D.flip_h = true
+	else:
+		$AnimatedSprite2D.frame = 0
 	# handle movement differently in the air
 	if is_on_floor():
 		if direction:
