@@ -8,6 +8,9 @@ class_name Player
 @export var x_wrap: float = 384.0
 @export var y_wrap: float = -216.0
 
+@export var time_slow: float = 0.1
+@export var time_stop_duration: float = 0.2
+
 @onready var shadow: AnimatedSprite2D = %Shadow
 @onready var player_sprite: AnimatedSprite2D = %PlayerSprite
 
@@ -87,6 +90,7 @@ func go_to_shadow():
 		shadow.global_position = player_position_queue[0]
 		shadow.hide()
 		player_position_queue.clear()
+		Events.freeze_frame.emit(time_slow, time_stop_duration)
 
 func jump():
 	velocity.y = jump_velocity
