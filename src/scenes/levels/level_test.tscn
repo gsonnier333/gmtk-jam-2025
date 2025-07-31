@@ -1,17 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://dbuba8oxb4o37"]
+[gd_scene load_steps=6 format=4 uid="uid://dbuba8oxb4o37"]
 
-[ext_resource type="Texture2D" uid="uid://8ld6toiw3elg" path="res://assets/sprites/sring.png" id="1_eosla"]
 [ext_resource type="Texture2D" uid="uid://c10onu3rbchef" path="res://assets/sprites/test-box.png" id="1_h0hot"]
 [ext_resource type="PackedScene" uid="uid://ba3a58qpo6ftu" path="res://src/scenes/player.tscn" id="2_yluh8"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_unlur"]
-texture = ExtResource("1_eosla")
-0:1/0 = 0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:0/size_in_atlas = Vector2i(1, 2)
-1:0/0 = 0
-1:0/0/texture_origin = Vector2i(0, 8)
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+[ext_resource type="PackedScene" uid="uid://vgo14t5qd7qq" path="res://src/scenes/spring.tscn" id="4_unlur"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yluh8"]
 texture = ExtResource("1_h0hot")
@@ -21,19 +12,30 @@ texture = ExtResource("1_h0hot")
 [sub_resource type="TileSet" id="TileSet_jp5fc"]
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_yluh8")
-sources/0 = SubResource("TileSetAtlasSource_unlur")
 
 [node name="LevelTest" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAAAAgAAAAAAAAABAAAAAgAAAAAAAAACAAAAAgAAAAAAAAADAAAAAgAAAAAAAAAEAAAAAgAAAAAAAAD//wAAAgAAAAAAAAD+/wAAAgAAAAAAAAD9/wAAAgAAAAAAAAD8/wAAAgAAAAAAAAD7/wAAAgAAAAAAAAADAP3/AgAAAAAAAAAEAP3/AgAAAAAAAAD8//3/AgAAAAAAAAD7//3/AgAAAAAAAAD6/wAAAgAAAAAAAAAFAAAAAgAAAAAAAAAGAAAAAgAAAAAAAAAHAAAAAgAAAAAAAAAIAAAAAgAAAAAAAAAJAAAAAgAAAAAAAAAKAAAAAgAAAAAAAAALAAAAAgAAAAAAAAAMAAAAAgAAAAAAAAANAAAAAgAAAAAAAAAOAAAAAgAAAAAAAAAPAAAAAgAAAAAAAAAQAAAAAgAAAAAAAAARAAAAAgAAAAAAAAASAAAAAgAAAAAAAAAHAP//AAAAAAEAAAAIAP//AAABAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAgAAAAAAAAABAAAAAgAAAAAAAAACAAAAAgAAAAAAAAADAAAAAgAAAAAAAAAEAAAAAgAAAAAAAAD//wAAAgAAAAAAAAD+/wAAAgAAAAAAAAD9/wAAAgAAAAAAAAD8/wAAAgAAAAAAAAD7/wAAAgAAAAAAAAADAP3/AgAAAAAAAAAEAP3/AgAAAAAAAAD8//3/AgAAAAAAAAD7//3/AgAAAAAAAAD6/wAAAgAAAAAAAAAFAAAAAgAAAAAAAAAGAAAAAgAAAAAAAAAHAAAAAgAAAAAAAAAIAAAAAgAAAAAAAAAJAAAAAgAAAAAAAAAKAAAAAgAAAAAAAAALAAAAAgAAAAAAAAAMAAAAAgAAAAAAAAANAAAAAgAAAAAAAAAOAAAAAgAAAAAAAAAPAAAAAgAAAAAAAAAQAAAAAgAAAAAAAAARAAAAAgAAAAAAAAASAAAAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_jp5fc")
 
 [node name="Player" parent="." instance=ExtResource("2_yluh8")]
-position = Vector2(-1, -74)
+position = Vector2(-66, -68)
 reset_time_sec = 3.0
-use_shadows_momentum = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(74, -112)
 zoom = Vector2(2, 2)
+
+[node name="Spring" parent="." instance=ExtResource("4_unlur")]
+position = Vector2(213, -15)
+spring_power = -500.0
+
+[node name="Spring2" parent="." instance=ExtResource("4_unlur")]
+position = Vector2(95, -40)
+rotation = 1.5708
+
+[node name="Spring3" parent="." instance=ExtResource("4_unlur")]
+position = Vector2(45, -59)
+rotation = -0.58294
+spring_power = -1200.0

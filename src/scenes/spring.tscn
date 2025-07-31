@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://vgo14t5qd7qq"]
+
+[ext_resource type="Script" uid="uid://bnbest3xdk68u" path="res://src/scripts/spring.gd" id="1_x2tct"]
+[ext_resource type="Texture2D" uid="uid://b1ylalx4tf78l" path="res://assets/sprites/spring_extended.png" id="2_055x4"]
+[ext_resource type="Texture2D" uid="uid://c5rtmp4mvihrx" path="res://assets/sprites/spring_coiled.png" id="3_l6hsb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_055x4"]
+size = Vector2(14, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6hsb"]
+size = Vector2(14, 11)
+
+[node name="Spring" type="Area2D"]
+monitorable = false
+script = ExtResource("1_x2tct")
+spring_power = -600.0
+
+[node name="ExtendedHitbox" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_055x4")
+
+[node name="CoiledHitbox" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 10.5)
+shape = SubResource("RectangleShape2D_l6hsb")
+disabled = true
+
+[node name="ExtendedSpringSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("2_055x4")
+
+[node name="CoiledSpringSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+texture = ExtResource("3_l6hsb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
