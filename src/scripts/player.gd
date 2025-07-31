@@ -10,6 +10,8 @@ class_name Player
 
 @export var time_slow: float = 0.1
 @export var time_stop_duration: float = 0.2
+@export var shake_intensity: float = 1.0
+@export var shake_duration: float = 0.3
 
 @onready var shadow: AnimatedSprite2D = %Shadow
 @onready var player_sprite: AnimatedSprite2D = %PlayerSprite
@@ -91,6 +93,7 @@ func go_to_shadow():
 		shadow.hide()
 		player_position_queue.clear()
 		Events.freeze_frame.emit(time_slow, time_stop_duration)
+		Events.camera_shake.emit(shake_intensity, shake_duration)
 
 func jump():
 	velocity.y = jump_velocity
@@ -99,5 +102,5 @@ func handle_escape():
 	get_tree().quit()
 
 func screen_wrap():
-	position.x = wrapf(position.x, 0, x_wrap)
-	position.y = wrapf(position.y, 0, y_wrap)
+	global_position.x = wrapf(global_position.x, 0, x_wrap)
+	global_position.y = wrapf(global_position.y, 0, y_wrap)
