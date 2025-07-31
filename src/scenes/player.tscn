@@ -61,7 +61,7 @@ reset_time_sec = 3.0
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_g2els")
 autoplay = "default"
-frame_progress = 0.899368
+frame_progress = 0.324128
 
 [node name="Shadow" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
