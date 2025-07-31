@@ -5,11 +5,11 @@ class_name Player
 @export var acceleration: float = 40.0
 @export var jump_velocity: float = -700.0
 @export var reset_time_sec: float = 5.0
-@export var use_shadows_momentum: bool = false
 @export var x_wrap: float = 384.0
 @export var y_wrap: float = -216.0
 
 @onready var shadow: AnimatedSprite2D = %Shadow
+@onready var player_sprite: AnimatedSprite2D = %PlayerSprite
 
 const QUEUE_TICKS: int = 5
 var player_position_queue: PackedVector2Array = []
@@ -41,8 +41,6 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	handle_movement(delta)
-	if use_shadows_momentum:
-		add_velocity_to_queue(velocity)
 	
 func add_pos_to_queue(pos: Vector2, delta):
 	player_position_queue.append(pos)
@@ -50,11 +48,7 @@ func add_pos_to_queue(pos: Vector2, delta):
 		elapsed_time += delta
 	else:
 		player_position_queue.remove_at(0)
-
-func add_velocity_to_queue(vel: Vector2):
-	player_velocity_queue.append(vel)
-	if len(player_velocity_queue) > max_queue_size:
-		player_velocity_queue.remove_at(0)
+		shadow.show()
 
 func handle_movement(delta) -> void:
 	# Add the gravity.
@@ -65,11 +59,12 @@ func handle_movement(delta) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")
 	if direction > 0:
-		$AnimatedSprite2D.flip_h = false
+		player_sprite.flip_h = false
+		
 	elif direction < 0:
-		$AnimatedSprite2D.flip_h = true
+		player_sprite.flip_h = true
 	else:
-		$AnimatedSprite2D.frame = 0
+		player_sprite.frame = 0
 	# handle movement differently in the air
 	if is_on_floor():
 		if direction:
@@ -86,13 +81,11 @@ func handle_movement(delta) -> void:
 	screen_wrap()
 
 func go_to_shadow():
-	if !player_position_queue.is_empty():
+	if !player_position_queue.is_empty() and shadow.visible:
 		elapsed_time = 0.0
 		global_position = player_position_queue[0]
 		shadow.global_position = player_position_queue[0]
-		if use_shadows_momentum:
-			velocity = player_velocity_queue[0]
-			player_velocity_queue.clear()
+		shadow.hide()
 		player_position_queue.clear()
 
 func jump():
