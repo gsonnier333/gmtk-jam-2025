@@ -57,7 +57,8 @@ acceleration = 30.0
 jump_velocity = -300.0
 reset_time_sec = 3.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_g2els")
 autoplay = "default"
@@ -65,6 +66,7 @@ frame_progress = 0.324128
 
 [node name="Shadow" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+visible = false
 self_modulate = Color(1, 1, 1, 0.423529)
 sprite_frames = SubResource("SpriteFrames_l2v1k")
 
