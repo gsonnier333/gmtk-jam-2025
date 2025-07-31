@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cysibo6h56e5a"
-path="res://.godot/imported/tiles.webp-f139471feb29e47618b23a8937300674.ctex"
+uid="uid://8ld6toiw3elg"
+path="res://.godot/imported/sring.png-53c5138e989da87d1afdb4c009c9ca94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tile_sets/tiles.webp"
-dest_files=["res://.godot/imported/tiles.webp-f139471feb29e47618b23a8937300674.ctex"]
+source_file="res://assets/sprites/sring.png"
+dest_files=["res://.godot/imported/sring.png-53c5138e989da87d1afdb4c009c9ca94.ctex"]
 
 [params]
 
