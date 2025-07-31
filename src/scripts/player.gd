@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var jump_velocity: float = -700.0
 @export var reset_time_sec: float = 5.0
 @export var use_shadows_momentum: bool = false
+@export var x_wrap: float = 384.0
+@export var y_wrap: float = -216.0
 
 @onready var shadow: AnimatedSprite2D = %Shadow
 
@@ -81,6 +83,7 @@ func handle_movement(delta) -> void:
 			velocity.x = move_toward(velocity.x, 0, acceleration)
 
 	move_and_slide()
+	screen_wrap()
 
 func go_to_shadow():
 	if !player_position_queue.is_empty():
@@ -97,3 +100,7 @@ func jump():
 
 func handle_escape():
 	get_tree().quit()
+
+func screen_wrap():
+	position.x = wrapf(position.x, 0, x_wrap)
+	position.y = wrapf(position.y, 0, y_wrap)
