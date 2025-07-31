@@ -19,9 +19,10 @@ tile_map_data = PackedByteArray("AAAAAAAAAgAAAAAAAAABAAAAAgAAAAAAAAACAAAAAgAAAAA
 tile_set = SubResource("TileSet_jp5fc")
 
 [node name="Player" parent="." instance=ExtResource("2_yluh8")]
-position = Vector2(-66, -68)
-reset_time_sec = 3.0
+position = Vector2(0, -45)
+jump_velocity = -350.0
+use_shadows_momentum = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(74, -112)
-zoom = Vector2(2, 2)
+position = Vector2(89, -91)
+zoom = Vector2(3, 3)
