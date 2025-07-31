@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=4 uid="uid://dbuba8oxb4o37"]
+[gd_scene load_steps=5 format=4 uid="uid://dbuba8oxb4o37"]
 
 [ext_resource type="Texture2D" uid="uid://c10onu3rbchef" path="res://assets/sprites/test-box.png" id="1_h0hot"]
 [ext_resource type="PackedScene" uid="uid://ba3a58qpo6ftu" path="res://src/scenes/player.tscn" id="2_yluh8"]
-[ext_resource type="PackedScene" uid="uid://vgo14t5qd7qq" path="res://src/scenes/spring.tscn" id="4_unlur"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yluh8"]
 texture = ExtResource("1_h0hot")
@@ -26,16 +25,3 @@ reset_time_sec = 3.0
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(74, -112)
 zoom = Vector2(2, 2)
-
-[node name="Spring" parent="." instance=ExtResource("4_unlur")]
-position = Vector2(213, -15)
-spring_power = -500.0
-
-[node name="Spring2" parent="." instance=ExtResource("4_unlur")]
-position = Vector2(95, -40)
-rotation = 1.5708
-
-[node name="Spring3" parent="." instance=ExtResource("4_unlur")]
-position = Vector2(45, -59)
-rotation = -0.58294
-spring_power = -1200.0
