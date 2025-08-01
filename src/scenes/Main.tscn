@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://cugy4r615mew"]
+
+[ext_resource type="Script" uid="uid://cdjxv22rbiogr" path="res://src/scripts/main.gd" id="1_akft7"]
+[ext_resource type="PackedScene" uid="uid://u1p0pv37ev8c" path="res://src/scenes/ui/Settings.tscn" id="2_1hqvy"]
+[ext_resource type="PackedScene" uid="uid://dnuvh17gyjilm" path="res://src/scenes/levels/level_test.tscn" id="2_w8f5i"]
+[ext_resource type="PackedScene" uid="uid://bb04h0afsdhsv" path="res://src/scenes/world_manager.tscn" id="3_1hqvy"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_akft7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameSVContainer" type="SubViewportContainer" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="Game Render" type="SubViewport" parent="CanvasLayer/GameSVContainer"]
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+canvas_item_default_texture_filter = 0
+audio_listener_enable_2d = true
+size = Vector2i(640, 360)
+size_2d_override = Vector2i(640, 360)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="LevelTest" parent="CanvasLayer/GameSVContainer/Game Render" instance=ExtResource("2_w8f5i")]
+
+[node name="WorldManager" parent="CanvasLayer/GameSVContainer/Game Render" instance=ExtResource("3_1hqvy")]
+
+[node name="UISVContainer" type="SubViewportContainer" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="UI Render" type="SubViewport" parent="CanvasLayer/UISVContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(640, 360)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Settings" parent="CanvasLayer/UISVContainer/UI Render" instance=ExtResource("2_1hqvy")]
+visible = false

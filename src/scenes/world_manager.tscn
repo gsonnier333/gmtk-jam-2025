@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb04h0afsdhsv"]
+
+[ext_resource type="Script" uid="uid://b41332hlexknl" path="res://src/scripts/singletons/world_manager.gd" id="1_6patc"]
+[ext_resource type="PackedScene" uid="uid://25bt7545x7lj" path="res://src/scenes/loop_effect.tscn" id="2_1c5yy"]
+
+[node name="WorldManager" type="Node2D"]
+script = ExtResource("1_6patc")
+loop_effect = ExtResource("2_1c5yy")

@@ -20,7 +20,6 @@ var frames_since_on_ground: int = 0
 
 @onready var shadow: AnimatedSprite2D = %Shadow
 @onready var player_sprite: AnimatedSprite2D = %PlayerSprite
-@onready var settings: CanvasLayer = %Settings
 @onready var jump_sound: AudioStreamPlayer = %JumpSound
 @onready var loop_sound: AudioStreamPlayer = %LoopSound
 
@@ -36,7 +35,7 @@ var tick_count: int = 0
 var elapsed_time: float = 0.0
 
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	max_queue_size = int(Engine.get_physics_ticks_per_second() * reset_time_sec)
 
 func _input(event: InputEvent) -> void:
@@ -50,8 +49,7 @@ func _input(event: InputEvent) -> void:
 		go_to_shadow()
 
 func _process(delta: float) -> void:
-	if !settings.visible:
-		move_shadow(delta)
+	move_shadow(delta)
 	
 
 func _physics_process(delta: float) -> void:
@@ -152,15 +150,7 @@ func jump():
 		velocity.y = jump_velocity
 
 func handle_escape():
-	pass
-	if settings.visible:
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		settings.hide()
-		Engine.time_scale = 1.0
-	else:
-		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
-		settings.show()
-		Engine.time_scale = 0.00001
+	Events.toggle_settings.emit()
 
 func screen_wrap():
 	global_position.x = wrapf(global_position.x, 0, x_wrap)
