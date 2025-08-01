@@ -133,7 +133,7 @@ func handle_movement(delta) -> void:
 func go_to_shadow():
 	if !player_position_queue.is_empty() and shadow.visible:
 		loop_sound.play()
-		Events.player_warped.emit(global_position, player_position_queue[0])
+		Events.player_warped.emit(global_position, player_sprite.flip_h)
 		elapsed_time = 0.0
 		global_position = player_position_queue[0]
 		shadow.global_position = player_position_queue[0]
