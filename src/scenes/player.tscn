@@ -51,6 +51,7 @@ animations = [{
 size = Vector2(13, 15)
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 5
 script = ExtResource("1_g2els")
 speed = 200.0
 acceleration = 30.0

@@ -1,8 +1,12 @@
-[gd_scene load_steps=6 format=4 uid="uid://dbuba8oxb4o37"]
+[gd_scene load_steps=13 format=4 uid="uid://dbuba8oxb4o37"]
 
 [ext_resource type="Texture2D" uid="uid://c10onu3rbchef" path="res://assets/sprites/test-box.png" id="1_h0hot"]
 [ext_resource type="PackedScene" uid="uid://ba3a58qpo6ftu" path="res://src/scenes/player.tscn" id="2_yluh8"]
-[ext_resource type="PackedScene" uid="uid://vgo14t5qd7qq" path="res://src/scenes/spring.tscn" id="3_eosla"]
+[ext_resource type="PackedScene" uid="uid://vgo14t5qd7qq" path="res://src/scenes/level_components/spring.tscn" id="3_eosla"]
+[ext_resource type="PackedScene" uid="uid://dginbii8t7hva" path="res://src/scenes/level_components/moving_platform.tscn" id="4_unlur"]
+[ext_resource type="PackedScene" uid="uid://xwokp02fqpwa" path="res://src/scenes/level_components/door.tscn" id="5_a04gn"]
+[ext_resource type="PackedScene" uid="uid://csfdhp7ejy7r" path="res://src/scenes/level_components/pressure_plate.tscn" id="5_wnsbw"]
+[ext_resource type="PackedScene" uid="uid://cscfma6e0ntb" path="res://src/scenes/game_camera.tscn" id="7_dy7re"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yluh8"]
 texture = ExtResource("1_h0hot")
@@ -13,25 +17,88 @@ texture = ExtResource("1_h0hot")
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_yluh8")
 
+[sub_resource type="Animation" id="Animation_wnsbw"]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-54, -178)]
+}
+
+[sub_resource type="Animation" id="Animation_a04gn"]
+resource_name = "moving"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-54, -178), Vector2(313, -178)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dy7re"]
+_data = {
+&"RESET": SubResource("Animation_wnsbw"),
+&"moving": SubResource("Animation_a04gn")
+}
+
 [node name="LevelTest" type="Node2D"]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(95, 0)
+
+[node name="LevelElements" type="Node2D" parent="."]
+position = Vector2(95, 0)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="LevelElements"]
 position = Vector2(97, -16)
-tile_map_data = PackedByteArray("AAAAAAAAAgAAAAAAAAABAAAAAgAAAAAAAAACAAAAAgAAAAAAAAADAAAAAgAAAAAAAAAEAAAAAgAAAAAAAAD//wAAAgAAAAAAAAD+/wAAAgAAAAAAAAD9/wAAAgAAAAAAAAD8/wAAAgAAAAAAAAD7/wAAAgAAAAAAAAADAP3/AgAAAAAAAAAEAP3/AgAAAAAAAAD8//3/AgAAAAAAAAD7//3/AgAAAAAAAAD6/wAAAgAAAAAAAAAFAAAAAgAAAAAAAAAGAAAAAgAAAAAAAAAHAAAAAgAAAAAAAAAIAAAAAgAAAAAAAAAJAAAAAgAAAAAAAAANAAAAAgAAAAAAAAAOAAAAAgAAAAAAAAAPAAAAAgAAAAAAAAAQAAAAAgAAAAAAAAARAAAAAgAAAAAAAAASAAAAAgAAAAAAAAAHAP//AAAAAAEAAAAIAP//AAABAAAAAAD6//X/AgAAAAAAAAD7//X/AgAAAAAAAAD8//X/AgAAAAAAAAD9//X/AgAAAAAAAAD+//X/AgAAAAAAAAD///X/AgAAAAAAAAAAAPX/AgAAAAAAAAABAPX/AgAAAAAAAAACAPX/AgAAAAAAAAADAPX/AgAAAAAAAAAEAPX/AgAAAAAAAAAFAPX/AgAAAAAAAAAGAPX/AgAAAAAAAAAHAPX/AgAAAAAAAAAIAPX/AgAAAAAAAAAJAPX/AgAAAAAAAAAKAPX/AgAAAAAAAAALAPX/AgAAAAAAAAAMAPX/AgAAAAAAAAANAPX/AgAAAAAAAAAOAPX/AgAAAAAAAAAPAPX/AgAAAAAAAAAQAPX/AgAAAAAAAAARAPX/AgAAAAAAAAASAPX/AgAAAAAAAAD5//X/AgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAgAAAAAAAAABAAAAAgAAAAAAAAACAAAAAgAAAAAAAAADAAAAAgAAAAAAAAAEAAAAAgAAAAAAAAD//wAAAgAAAAAAAAD+/wAAAgAAAAAAAAD9/wAAAgAAAAAAAAD8/wAAAgAAAAAAAAD7/wAAAgAAAAAAAAADAP3/AgAAAAAAAAAEAP3/AgAAAAAAAAD6/wAAAgAAAAAAAAAFAAAAAgAAAAAAAAAGAAAAAgAAAAAAAAAHAAAAAgAAAAAAAAAIAAAAAgAAAAAAAAAJAAAAAgAAAAAAAAANAAAAAgAAAAAAAAAOAAAAAgAAAAAAAAAPAAAAAgAAAAAAAAAQAAAAAgAAAAAAAAARAAAAAgAAAAAAAAASAAAAAgAAAAAAAAAHAP//AAAAAAEAAAAIAP//AAABAAAAAAD5/wAAAgAAAAAAAAD4/wAAAgAAAAAAAAD3/wAAAgAAAAAAAAD2/wAAAgAAAAAAAAD1/wAAAgAAAAAAAAD0/wAAAgAAAAAAAAATAAAAAgAAAAAAAAAUAAAAAgAAAAAAAAAVAAAAAgAAAAAAAAAWAAAAAgAAAAAAAAAXAAAAAgAAAAAAAAAPAPj/AgAAAAAAAAAQAPj/AgAAAAAAAAARAPj/AgAAAAAAAAD0/+//AgAAAAAAAAD1/+//AgAAAAAAAAD2/+//AgAAAAAAAAD3/+//AgAAAAAAAAD4/+//AgAAAAAAAAD5/+//AgAAAAAAAAD6/+//AgAAAAAAAAD7/+//AgAAAAAAAAD8/+//AgAAAAAAAAD9/+//AgAAAAAAAAD+/+//AgAAAAAAAAD//+//AgAAAAAAAAAAAO//AgAAAAAAAAABAO//AgAAAAAAAAACAO//AgAAAAAAAAADAO//AgAAAAAAAAAEAO//AgAAAAAAAAAFAO//AgAAAAAAAAAGAO//AgAAAAAAAAAHAO//AgAAAAAAAAAIAO//AgAAAAAAAAAJAO//AgAAAAAAAAAKAO//AgAAAAAAAAALAO//AgAAAAAAAAAMAO//AgAAAAAAAAANAO//AgAAAAAAAAAOAO//AgAAAAAAAAAPAO//AgAAAAAAAAAQAO//AgAAAAAAAAARAO//AgAAAAAAAAASAO//AgAAAAAAAAD0////AgAAAAAAAAD0//7/AgAAAAAAAAD0//3/AgAAAAAAAAD0//z/AgAAAAAAAAD0//v/AgAAAAAAAAD0//r/AgAAAAAAAAD0//n/AgAAAAAAAAD1//n/AgAAAAAAAAD2//n/AgAAAAAAAAD3//n/AgAAAAAAAAD4//n/AgAAAAAAAAD5//n/AgAAAAAAAAD6//n/AgAAAAAAAAD7//n/AgAAAAAAAAD7//r/AgAAAAAAAAD7//v/AgAAAAAAAAD7//z/AgAAAAAAAAD7//3/AgAAAAAAAAA=")
 tile_set = SubResource("TileSet_jp5fc")
 
-[node name="Player" parent="." instance=ExtResource("2_yluh8")]
+[node name="Spring" parent="LevelElements" instance=ExtResource("3_eosla")]
+position = Vector2(360, -32)
+spring_power = -1200.0
+
+[node name="Spring3" parent="LevelElements" instance=ExtResource("3_eosla")]
+position = Vector2(213, -32)
+
+[node name="Player" parent="LevelElements" instance=ExtResource("2_yluh8")]
 position = Vector2(82, -48)
 jump_velocity = -350.0
 reset_time_sec = 2.0
+x_wrap = 577.0
+y_wrap = -325.0
+shake_intensity = 1.5
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(192, -108)
-zoom = Vector2(3, 3)
+[node name="MovingPlatform" parent="LevelElements" instance=ExtResource("4_unlur")]
+position = Vector2(-54, -178)
 
-[node name="Spring" parent="." instance=ExtResource("3_eosla")]
-position = Vector2(232, -31)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelElements/MovingPlatform"]
+libraries = {
+&"": SubResource("AnimationLibrary_dy7re")
+}
+autoplay = "moving"
 
-[node name="Spring2" parent="." instance=ExtResource("3_eosla")]
-position = Vector2(34, -71)
-rotation = 1.5708
+[node name="Door" parent="LevelElements" instance=ExtResource("5_a04gn")]
+position = Vector2(25, -32)
+activated = true
+
+[node name="PressurePlate" parent="LevelElements" node_paths=PackedStringArray("activate_object") instance=ExtResource("5_wnsbw")]
+position = Vector2(161, -72)
+activate_object = NodePath("../Door")
+
+[node name="GameCamera" parent="." instance=ExtResource("7_dy7re")]
+position = Vector2(288, -162)

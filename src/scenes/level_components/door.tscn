@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://xwokp02fqpwa"]
+
+[ext_resource type="Script" uid="uid://dh3vpgbwu4ihh" path="res://src/scripts/door.gd" id="1_rfvlv"]
+[ext_resource type="Texture2D" uid="uid://be0his7rbpf62" path="res://assets/sprites/door.png" id="2_fnhkg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n40wf"]
+size = Vector2(7, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfvlv"]
+atlas = ExtResource("2_fnhkg")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnhkg"]
+atlas = ExtResource("2_fnhkg")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n40wf"]
+atlas = ExtResource("2_fnhkg")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oosye"]
+atlas = ExtResource("2_fnhkg")
+region = Rect2(16, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ug70"]
+atlas = ExtResource("2_fnhkg")
+region = Rect2(0, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsr15"]
+atlas = ExtResource("2_fnhkg")
+region = Rect2(16, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpq1o"]
+atlas = ExtResource("2_fnhkg")
+region = Rect2(0, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rk7mp"]
+atlas = ExtResource("2_fnhkg")
+region = Rect2(16, 96, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rk7mp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfvlv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnhkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n40wf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oosye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ug70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsr15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpq1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rk7mp")
+}],
+"loop": false,
+"name": &"door_open",
+"speed": 24.0
+}]
+
+[node name="Door" type="StaticBody2D"]
+script = ExtResource("1_rfvlv")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_n40wf")
+
+[node name="DoorAnimatedSprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_rk7mp")
+animation = &"door_open"
