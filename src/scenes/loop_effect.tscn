@@ -269,6 +269,7 @@ animations = [{
 
 [node name="LoopEffect" type="AnimatedSprite2D"]
 modulate = Color(1, 1, 1, 0.490196)
+z_index = 1
 sprite_frames = SubResource("SpriteFrames_ntbek")
 animation = &"cat_looped"
 frame = 8
