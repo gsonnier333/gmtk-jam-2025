@@ -123,9 +123,9 @@ func handle_movement(delta) -> void:
 			velocity.x = move_toward(velocity.x, 0, acceleration)
 	else:
 		if direction:
-			velocity.x = move_toward(velocity.x, direction * speed, acceleration/3)
+			velocity.x = move_toward(velocity.x, direction * speed, acceleration/1.5)
 		else:
-			velocity.x = move_toward(velocity.x, 0, acceleration)
+			velocity.x = move_toward(velocity.x, 0, acceleration/3)
 	
 	var hold = velocity
 	move_and_slide()
