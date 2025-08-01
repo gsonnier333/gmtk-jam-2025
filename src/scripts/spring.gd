@@ -12,13 +12,13 @@ class_name Spring
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
-		body.velocity = spring_power * calculate_velocity_dir()
+		body.set_player_velocity(spring_power * calculate_velocity_dir())
 		extend_spring.call_deferred()
 		
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is Player:
-		body.velocity = spring_power * calculate_velocity_dir()
+		body.set_player_velocity(spring_power * calculate_velocity_dir())
 		coil_spring.call_deferred()
 		
 func calculate_velocity_dir() -> Vector2:
