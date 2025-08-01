@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Events="*res://src/scripts/singletons/events.gd"
 WorldManager="*res://src/scripts/singletons/world_manager.gd"
+Bgm="*res://src/scenes/bgm.tscn"
 
 [display]
 

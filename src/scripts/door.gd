@@ -4,6 +4,8 @@ class_name Door
 
 @onready var collision_shape: CollisionShape2D = %CollisionShape
 @onready var door_animated_sprite: AnimatedSprite2D = %DoorAnimatedSprite
+@onready var sound_effect: AudioStreamPlayer2D = %SoundEffect
+
 @export var activated: bool = false:
 	set(new_activated):
 		activated = new_activated
@@ -31,6 +33,7 @@ func deactivate():
 		door_animated_sprite.play_backwards("door_open")
 		
 func toggle():
+	sound_effect.play()
 	if activated:
 		activated = false
 	else:

@@ -7,6 +7,7 @@ class_name PressurePlate
 @onready var activate_sprite: Sprite2D = %ActivateSprite
 
 @onready var plate_base_sprite: Sprite2D = %PlateBaseSprite
+@onready var sound_effect: AudioStreamPlayer2D = %SoundEffect
 
 
 func _ready() -> void:
@@ -15,6 +16,7 @@ func _ready() -> void:
 
 func _on_pressure_plate_area_body_entered(body: Node2D) -> void:
 	if body is Player:
+		sound_effect.play()
 		for obj in activate_objects:
 			if obj.has_method("toggle"):
 				obj.toggle()

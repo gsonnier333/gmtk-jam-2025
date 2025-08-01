@@ -1,12 +1,14 @@
 extends Area2D
 class_name Spring
 
-@export var spring_power: float = -300
+@export var spring_power: float = -600
 
 @onready var extended_hitbox: CollisionShape2D = %ExtendedHitbox
 @onready var coiled_hitbox: CollisionShape2D = %CoiledHitbox
 @onready var extended_spring_sprite: Sprite2D = %ExtendedSpringSprite
 @onready var coiled_spring_sprite: Sprite2D = %CoiledSpringSprite
+@onready var sound_effect: AudioStreamPlayer2D = %SoundEffect
+@onready var pitch_shift: float = -1 * (spring_power + 600) / 1000  
 
 
 
@@ -18,6 +20,8 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is Player:
+		sound_effect.pitch_scale = 1.0 + pitch_shift
+		sound_effect.play()
 		body.set_player_velocity(spring_power * calculate_velocity_dir())
 		coil_spring.call_deferred()
 		
