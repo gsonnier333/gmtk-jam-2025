@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://u1p0pv37ev8c"]
+
+[ext_resource type="PackedScene" uid="uid://bi4tleiooi0i" path="res://src/scenes/ui/DisplayOptions.tscn" id="1_v3olk"]
+[ext_resource type="Script" uid="uid://bc2ty10irlplj" path="res://src/scripts/ui/settings.gd" id="1_y2h3x"]
+[ext_resource type="PackedScene" uid="uid://bf7r1ldpmimy7" path="res://src/scenes/ui/AudioOptions.tscn" id="2_bm5fs"]
+[ext_resource type="PackedScene" uid="uid://c20xvcjjap7am" path="res://src/scenes/ui/KeybindingSettings.tscn" id="3_55n3l"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y2h3x")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 174.0
+offset_top = 85.0
+offset_right = -174.0
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="PanelContainer"]
+layout_mode = 2
+current_tab = 0
+
+[node name="Display Options" parent="PanelContainer/TabContainer" instance=ExtResource("1_v3olk")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Audio Options" parent="PanelContainer/TabContainer" instance=ExtResource("2_bm5fs")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Keybindings" parent="PanelContainer/TabContainer" instance=ExtResource("3_55n3l")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Exit Button" type="Button" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Exit Game"
+
+[connection signal="pressed" from="PanelContainer/Exit Button" to="." method="_on_exit_button_pressed"]

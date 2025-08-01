@@ -15,6 +15,8 @@ class_name Player
 
 @onready var shadow: AnimatedSprite2D = %Shadow
 @onready var player_sprite: AnimatedSprite2D = %PlayerSprite
+@onready var settings: CanvasLayer = %Settings
+
 
 signal warped(from: Vector2, to: Vector2)
 
@@ -26,6 +28,7 @@ var tick_count: int = 0
 var elapsed_time: float = 0.0
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	max_queue_size = int(Engine.get_physics_ticks_per_second() * reset_time_sec)
 
 func _input(event: InputEvent) -> void:
@@ -35,15 +38,12 @@ func _input(event: InputEvent) -> void:
 		handle_escape()
 	if event.is_action("debug"):
 		print(player_velocity_queue)
-	if event.is_action("time-jump"):
+	if event.is_action("loop"):
 		go_to_shadow()
 
 func _process(delta: float) -> void:
-	add_pos_to_queue(global_position, delta)
-	if player_position_queue.is_empty():
-		shadow.global_position = global_position
-	else:
-		shadow.global_position = player_position_queue[0]
+	if !settings.visible:
+		move_shadow(delta)
 	
 
 func _physics_process(delta: float) -> void:
@@ -56,6 +56,13 @@ func add_pos_to_queue(pos: Vector2, delta):
 	else:
 		player_position_queue.remove_at(0)
 		shadow.show()
+
+func move_shadow(delta) -> void:
+	add_pos_to_queue(global_position, delta)
+	if player_position_queue.is_empty():
+		shadow.global_position = global_position
+	else:
+		shadow.global_position = player_position_queue[0]
 
 func handle_movement(delta) -> void:
 	# Add the gravity.
@@ -102,7 +109,14 @@ func jump():
 	velocity.y = jump_velocity
 
 func handle_escape():
-	get_tree().quit()
+	if settings.visible:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		settings.hide()
+		Engine.time_scale = 1.0
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+		settings.show()
+		Engine.time_scale = 0.0
 
 func screen_wrap():
 	global_position.x = wrapf(global_position.x, 0, x_wrap)
