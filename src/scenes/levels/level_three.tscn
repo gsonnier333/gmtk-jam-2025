@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=4 uid="uid://wt6jt0hdx15h"]
+
+[ext_resource type="PackedScene" uid="uid://ba3a58qpo6ftu" path="res://src/scenes/player.tscn" id="1_aqnnb"]
+[ext_resource type="Texture2D" uid="uid://c10onu3rbchef" path="res://assets/sprites/test-box.png" id="2_35ofq"]
+[ext_resource type="PackedScene" uid="uid://cscfma6e0ntb" path="res://src/scenes/game_camera.tscn" id="3_u1px1"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_od40e"]
+texture = ExtResource("2_35ofq")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_ll86d"]
+physics_layer_0/collision_layer = 1
+sources/2 = SubResource("TileSetAtlasSource_od40e")
+
+[node name="LevelThree" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_aqnnb")]
+position = Vector2(-9, 37)
+jump_velocity = -350.0
+reset_time_sec = 2.0
+x_wrap = 304.0
+y_wrap = -177.0
+shake_intensity = 1.5
+coyote_frames = 4
+
+[node name="LevelElements" type="Node2D" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="LevelElements"]
+tile_map_data = PackedByteArray("AADu//X/AgAAAAAAAADv//X/AgAAAAAAAADw//X/AgAAAAAAAADx//X/AgAAAAAAAADy//X/AgAAAAAAAADz//X/AgAAAAAAAAD0//X/AgAAAAAAAAD1//X/AgAAAAAAAAD2//X/AgAAAAAAAAD3//X/AgAAAAAAAAD4//X/AgAAAAAAAAD5//X/AgAAAAAAAAD6//X/AgAAAAAAAAD7//X/AgAAAAAAAAD8//X/AgAAAAAAAAD9//X/AgAAAAAAAAAEAPX/AgAAAAAAAAAFAPX/AgAAAAAAAAAGAPX/AgAAAAAAAAAHAPX/AgAAAAAAAAAIAPX/AgAAAAAAAAAJAPX/AgAAAAAAAAAKAPX/AgAAAAAAAAALAPX/AgAAAAAAAAAMAPX/AgAAAAAAAAANAPX/AgAAAAAAAAAOAPX/AgAAAAAAAAAPAPX/AgAAAAAAAAAQAPX/AgAAAAAAAAARAPX/AgAAAAAAAADu/woAAgAAAAAAAADv/woAAgAAAAAAAADw/woAAgAAAAAAAADx/woAAgAAAAAAAADy/woAAgAAAAAAAADz/woAAgAAAAAAAAD0/woAAgAAAAAAAAD1/woAAgAAAAAAAAD2/woAAgAAAAAAAAD3/woAAgAAAAAAAAD4/woAAgAAAAAAAAD5/woAAgAAAAAAAAD6/woAAgAAAAAAAAD7/woAAgAAAAAAAAD8/woAAgAAAAAAAAD9/woAAgAAAAAAAAADAAoAAgAAAAAAAAAEAAoAAgAAAAAAAAAFAAoAAgAAAAAAAAAGAAoAAgAAAAAAAAAHAAoAAgAAAAAAAAAIAAoAAgAAAAAAAAAJAAoAAgAAAAAAAAAKAAoAAgAAAAAAAAALAAoAAgAAAAAAAAAMAAoAAgAAAAAAAAANAAoAAgAAAAAAAAAOAAoAAgAAAAAAAAAPAAoAAgAAAAAAAAAQAAoAAgAAAAAAAAARAAoAAgAAAAAAAADt/woAAgAAAAAAAADt/wUAAgAAAAAAAADt/wQAAgAAAAAAAADt/wMAAgAAAAAAAADt/wIAAgAAAAAAAADt/wEAAgAAAAAAAADt/wAAAgAAAAAAAADt////AgAAAAAAAADt//7/AgAAAAAAAADt//3/AgAAAAAAAADt//z/AgAAAAAAAADt//v/AgAAAAAAAADt//r/AgAAAAAAAADt//n/AgAAAAAAAADt//j/AgAAAAAAAADt//f/AgAAAAAAAADt//b/AgAAAAAAAADt//X/AgAAAAAAAAASAPX/AgAAAAAAAAASAPb/AgAAAAAAAAASAPf/AgAAAAAAAAASAPj/AgAAAAAAAAASAPn/AgAAAAAAAAASAPr/AgAAAAAAAAASAPv/AgAAAAAAAAASAPz/AgAAAAAAAAASAP3/AgAAAAAAAAASAP7/AgAAAAAAAAASAP//AgAAAAAAAAASAAAAAgAAAAAAAAASAAEAAgAAAAAAAAASAAIAAgAAAAAAAAASAAMAAgAAAAAAAAASAAQAAgAAAAAAAAASAAUAAgAAAAAAAAASAAoAAgAAAAAAAAADAPX/AgAAAAAAAAA=")
+tile_set = SubResource("TileSet_ll86d")
+
+[node name="GameCamera" parent="." instance=ExtResource("3_u1px1")]

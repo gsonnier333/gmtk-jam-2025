@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://csfdhp7ejy7r"]
 
-[ext_resource type="Script" uid="uid://d21q2dqmy5njf" path="res://src/scripts/pressure_plate.gd" id="1_1jdah"]
+[ext_resource type="Script" uid="uid://d21q2dqmy5njf" path="res://src/scripts/level_components/pressure_plate.gd" id="1_1jdah"]
 [ext_resource type="Texture2D" uid="uid://dmx4rrg83ee5q" path="res://assets/sprites/pressure_plate.png" id="2_uqmfw"]
 [ext_resource type="AudioStream" uid="uid://b7n1cehfgu6sk" path="res://assets/audio/button_pressed.mp3" id="3_uqmfw"]
 

@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://ba3a58qpo6ftu"]
+[gd_scene load_steps=12 format=3 uid="uid://ohj5fnks44od"]
 
 [ext_resource type="Script" uid="uid://q6vyvdf5mt4t" path="res://src/scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://clv2ohtbwiwfx" path="res://assets/sprites/loop_cat.png" id="3_hwyk6"]
-[ext_resource type="PackedScene" uid="uid://u1p0pv37ev8c" path="res://src/scenes/ui/Settings.tscn" id="3_l2v1k"]
-[ext_resource type="AudioStream" uid="uid://dio57s2dcho28" path="res://assets/audio/cartoon_jump.mp3" id="4_l2v1k"]
-[ext_resource type="AudioStream" uid="uid://bnyudcpnjwf5b" path="res://assets/audio/loop_warp_sound.wav" id="5_ya6j6"]
+[ext_resource type="AudioStream" uid="uid://dio57s2dcho28" path="res://assets/audio/cartoon_jump.mp3" id="3_l2v1k"]
+[ext_resource type="AudioStream" uid="uid://bnyudcpnjwf5b" path="res://assets/audio/loop_warp_sound.wav" id="4_ya6j6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v4rts"]
 atlas = ExtResource("3_hwyk6")
@@ -25,7 +24,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0qy4j"]
@@ -60,15 +59,14 @@ speed = 200.0
 acceleration = 30.0
 jump_velocity = -300.0
 reset_time_sec = 3.0
-shake_intensity = 2.0
-shake_duration = 2.0
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_g2els")
 autoplay = "default"
-frame_progress = 0.324128
+frame = 1
+frame_progress = 0.335715
 
 [node name="Shadow" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
@@ -80,20 +78,14 @@ sprite_frames = SubResource("SpriteFrames_l2v1k")
 position = Vector2(1.5, 0.5)
 shape = SubResource("RectangleShape2D_3vyb7")
 
-[node name="Settings" type="CanvasLayer" parent="."]
-unique_name_in_owner = true
-visible = false
-
-[node name="SettingsControl" parent="Settings" instance=ExtResource("3_l2v1k")]
-
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("4_l2v1k")
+stream = ExtResource("3_l2v1k")
 volume_db = -10.47
 bus = &"SFX"
 
 [node name="LoopSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("5_ya6j6")
+stream = ExtResource("4_ya6j6")
 volume_db = -4.188
 bus = &"SFX"

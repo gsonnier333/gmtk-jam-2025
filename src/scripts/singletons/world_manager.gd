@@ -1,6 +1,6 @@
 extends Node
 
-var loop_effect: PackedScene = preload("res://src/scenes/loop_effect.tscn")
+@export var loop_effect: PackedScene
 
 func _ready() -> void:
 	Events.freeze_frame.connect(_freeze_frame)

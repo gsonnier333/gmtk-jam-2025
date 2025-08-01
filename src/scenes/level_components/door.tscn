@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://xwokp02fqpwa"]
 
-[ext_resource type="Script" uid="uid://dh3vpgbwu4ihh" path="res://src/scripts/door.gd" id="1_rfvlv"]
+[ext_resource type="Script" uid="uid://dh3vpgbwu4ihh" path="res://src/scripts/level_components/door.gd" id="1_rfvlv"]
 [ext_resource type="Texture2D" uid="uid://be0his7rbpf62" path="res://assets/sprites/door.png" id="2_fnhkg"]
 [ext_resource type="AudioStream" uid="uid://c58tt1wtcgohl" path="res://assets/audio/metal_door.mp3" id="3_fnhkg"]
 
@@ -84,8 +84,6 @@ disabled = true
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_rk7mp")
 animation = &"door_open"
-frame = 7
-frame_progress = 1.0
 
 [node name="SoundEffect" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true

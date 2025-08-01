@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://ivmw7reqr23a"]
+
+[ext_resource type="Script" uid="uid://btv7xnnelbsos" path="res://src/scripts/level_components/level_exit.gd" id="1_3be32"]
+[ext_resource type="Texture2D" uid="uid://bdql050mi3egy" path="res://assets/sprites/EscapePortal.png" id="1_pfso6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3be32"]
+atlas = ExtResource("1_pfso6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kw1xl"]
+atlas = ExtResource("1_pfso6")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j788"]
+atlas = ExtResource("1_pfso6")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_inygf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3be32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kw1xl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j788")
+}],
+"loop": true,
+"name": &"door_loop",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kw1xl"]
+size = Vector2(28, 30)
+
+[node name="LevelExit" type="Area2D"]
+script = ExtResource("1_3be32")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_inygf")
+animation = &"door_loop"
+autoplay = "door_loop"
+frame = 1
+frame_progress = 0.52597
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_kw1xl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
