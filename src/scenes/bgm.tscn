@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5k3k5a7yqoaa"]
+
+[ext_resource type="AudioStream" uid="uid://ch0v6y5nl1ntj" path="res://assets/audio/Loop_the_Cat_bgm.wav" id="1_11f1p"]
+
+[node name="Bgm" type="AudioStreamPlayer"]
+stream = ExtResource("1_11f1p")
+autoplay = true

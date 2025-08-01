@@ -21,6 +21,8 @@ var frames_since_on_ground: int = 0
 @onready var shadow: AnimatedSprite2D = %Shadow
 @onready var player_sprite: AnimatedSprite2D = %PlayerSprite
 @onready var settings: CanvasLayer = %Settings
+@onready var jump_sound: AudioStreamPlayer = %JumpSound
+@onready var loop_sound: AudioStreamPlayer = %LoopSound
 
 
 signal warped(from: Vector2, to: Vector2)
@@ -121,16 +123,17 @@ func handle_movement(delta) -> void:
 			velocity.x = move_toward(velocity.x, 0, acceleration)
 	else:
 		if direction:
-			velocity.x = move_toward(velocity.x, direction * speed, acceleration/3)
+			velocity.x = move_toward(velocity.x, direction * speed, acceleration/1.5)
 		else:
-			velocity.x = move_toward(velocity.x, 0, acceleration)
+			velocity.x = move_toward(velocity.x, 0, acceleration/3)
 	
 	var hold = velocity
 	move_and_slide()
 
 func go_to_shadow():
 	if !player_position_queue.is_empty() and shadow.visible:
-		Events.player_warped.emit(global_position, player_position_queue[0])
+		loop_sound.play()
+		Events.player_warped.emit(global_position, player_sprite.flip_h)
 		elapsed_time = 0.0
 		global_position = player_position_queue[0]
 		shadow.global_position = player_position_queue[0]
@@ -144,9 +147,8 @@ func go_to_shadow():
 		Events.camera_shake.emit(shake_intensity, shake_duration)
 
 func jump():
-	if is_on_floor():
-		velocity.y = jump_velocity
-	elif frames_since_on_ground < coyote_frames:
+	if is_on_floor() or frames_since_on_ground < coyote_frames:
+		jump_sound.play()
 		velocity.y = jump_velocity
 
 func handle_escape():
