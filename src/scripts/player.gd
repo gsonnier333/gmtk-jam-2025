@@ -18,6 +18,8 @@ class_name Player
 @onready var settings: CanvasLayer = %Settings
 
 
+signal warped(from: Vector2, to: Vector2)
+
 const QUEUE_TICKS: int = 5
 var player_position_queue: PackedVector2Array = []
 var player_velocity_queue: PackedVector2Array = []
@@ -94,6 +96,7 @@ func handle_movement(delta) -> void:
 
 func go_to_shadow():
 	if !player_position_queue.is_empty() and shadow.visible:
+		Events.player_warped.emit(global_position, player_position_queue[0])
 		elapsed_time = 0.0
 		global_position = player_position_queue[0]
 		shadow.global_position = player_position_queue[0]
