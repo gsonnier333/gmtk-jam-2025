@@ -70,7 +70,6 @@ tile_set = SubResource("TileSet_jp5fc")
 
 [node name="Spring" parent="LevelElements" instance=ExtResource("3_eosla")]
 position = Vector2(360, -32)
-spring_power = -1200.0
 
 [node name="Spring3" parent="LevelElements" instance=ExtResource("3_eosla")]
 position = Vector2(213, -32)
