@@ -75,6 +75,10 @@ spring_power = -1200.0
 [node name="Spring3" parent="LevelElements" instance=ExtResource("3_eosla")]
 position = Vector2(213, -32)
 
+[node name="Spring4" parent="LevelElements" instance=ExtResource("3_eosla")]
+position = Vector2(49, -120)
+rotation = 1.5708
+
 [node name="Player" parent="LevelElements" instance=ExtResource("2_yluh8")]
 position = Vector2(82, -48)
 jump_velocity = -350.0
@@ -82,6 +86,7 @@ reset_time_sec = 2.0
 x_wrap = 577.0
 y_wrap = -325.0
 shake_intensity = 1.5
+coyote_frames = 4
 
 [node name="MovingPlatform" parent="LevelElements" instance=ExtResource("4_unlur")]
 position = Vector2(-54, -178)
