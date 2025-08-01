@@ -137,7 +137,8 @@ func go_to_shadow():
 		shadow.hide()
 		player_position_queue.clear()
 		player_animation_frames_queue.clear()
-		velocity = get_velocity_from_buf()
+		var buffer_vel = get_velocity_from_buf()
+		velocity = buffer_vel
 		velocity_buffer.clear()
 		Events.freeze_frame.emit(time_slow, time_stop_duration)
 		Events.camera_shake.emit(shake_intensity, shake_duration)

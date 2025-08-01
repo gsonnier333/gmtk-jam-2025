@@ -78,6 +78,7 @@ position = Vector2(213, -32)
 [node name="Spring4" parent="LevelElements" instance=ExtResource("3_eosla")]
 position = Vector2(49, -120)
 rotation = 1.5708
+spring_power = -1200.0
 
 [node name="Player" parent="LevelElements" instance=ExtResource("2_yluh8")]
 position = Vector2(82, -48)
