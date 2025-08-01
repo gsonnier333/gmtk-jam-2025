@@ -16,15 +16,13 @@ func _ready() -> void:
 
 func _on_pressure_plate_area_body_entered(body: Node2D) -> void:
 	if body is Player:
-		if activate_object.has_method("activate"):
-			activate_object.activate()
+		if activate_object.has_method("toggle"):
+			activate_object.toggle()
 		activate_sprite.hide()
 		plate_base_sprite.show()
 
 
 func _on_pressure_plate_area_body_exited(body: Node2D) -> void:
 	if body is Player:
-		if activate_object.has_method("deactivate"):
-			activate_object.deactivate()
 		activate_sprite.show()
 		plate_base_sprite.hide()

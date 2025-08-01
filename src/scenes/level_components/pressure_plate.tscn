@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dmx4rrg83ee5q" path="res://assets/sprites/pressure_plate.png" id="2_uqmfw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aosri"]
-size = Vector2(26, 6)
+size = Vector2(24, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqwu2"]
 size = Vector2(24, 2)

@@ -71,6 +71,7 @@ func handle_movement(delta) -> void:
 	else:
 		player_sprite.frame = 0
 	# handle movement differently in the air
+	screen_wrap()
 	if is_on_floor():
 		if direction:
 			velocity.x = move_toward(velocity.x, direction * speed, acceleration)
@@ -83,7 +84,6 @@ func handle_movement(delta) -> void:
 			velocity.x = move_toward(velocity.x, 0, acceleration)
 
 	move_and_slide()
-	screen_wrap()
 
 func go_to_shadow():
 	if !player_position_queue.is_empty() and shadow.visible:

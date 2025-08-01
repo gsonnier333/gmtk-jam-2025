@@ -58,7 +58,7 @@ _data = {
 [node name="LevelTest" type="Node2D"]
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(767, -324)
+position = Vector2(95, 0)
 
 [node name="LevelElements" type="Node2D" parent="."]
 position = Vector2(95, 0)
@@ -69,7 +69,8 @@ tile_map_data = PackedByteArray("AAAAAAAAAgAAAAAAAAABAAAAAgAAAAAAAAACAAAAAgAAAAA
 tile_set = SubResource("TileSet_jp5fc")
 
 [node name="Spring" parent="LevelElements" instance=ExtResource("3_eosla")]
-position = Vector2(437, -31)
+position = Vector2(360, -32)
+spring_power = -1200.0
 
 [node name="Spring3" parent="LevelElements" instance=ExtResource("3_eosla")]
 position = Vector2(213, -32)
@@ -78,9 +79,9 @@ position = Vector2(213, -32)
 position = Vector2(82, -48)
 jump_velocity = -350.0
 reset_time_sec = 2.0
-x_wrap = 576.0
-y_wrap = -324.0
-shake_intensity = 2.0
+x_wrap = 577.0
+y_wrap = -325.0
+shake_intensity = 1.5
 
 [node name="MovingPlatform" parent="LevelElements" instance=ExtResource("4_unlur")]
 position = Vector2(-54, -178)
@@ -93,10 +94,11 @@ autoplay = "moving"
 
 [node name="Door" parent="LevelElements" instance=ExtResource("5_a04gn")]
 position = Vector2(25, -32)
+activated = true
 
 [node name="PressurePlate" parent="LevelElements" node_paths=PackedStringArray("activate_object") instance=ExtResource("5_wnsbw")]
 position = Vector2(161, -72)
 activate_object = NodePath("../Door")
 
 [node name="GameCamera" parent="." instance=ExtResource("7_dy7re")]
-position = Vector2(289, -162)
+position = Vector2(288, -162)
