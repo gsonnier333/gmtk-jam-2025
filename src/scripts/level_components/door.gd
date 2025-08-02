@@ -5,7 +5,7 @@ class_name Door
 @onready var door_animated_sprite: AnimatedSprite2D = %DoorAnimatedSprite
 @onready var sound_effect: AudioStreamPlayer2D = %SoundEffect
 
-@export var activated: bool = false:
+@export var activated: bool = true:
 	set(new_activated):
 		activated = new_activated
 		if activated:
