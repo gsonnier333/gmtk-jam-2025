@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://c5v3icl0nw4wq"]
+[gd_scene load_steps=12 format=4 uid="uid://b3vkkxfajuqtj"]
 
 [ext_resource type="Texture2D" uid="uid://dyiik375eq60v" path="res://assets/tile_sets/wall_tiles.png" id="1_plm0q"]
 [ext_resource type="PackedScene" uid="uid://ohj5fnks44od" path="res://src/scenes/player.tscn" id="2_fi7sb"]
@@ -106,7 +106,6 @@ position = Vector2(308, 144)
 
 [node name="Door" parent="LevelElements" instance=ExtResource("5_p3xe5")]
 position = Vector2(265, 145)
-activated = true
 
 [node name="Node2D" parent="LevelElements" node_paths=PackedStringArray("activate_objects") instance=ExtResource("6_mlwk8")]
 position = Vector2(-15, -167)
