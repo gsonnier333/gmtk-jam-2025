@@ -86,7 +86,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_j5112")
 sources/1 = SubResource("TileSetAtlasSource_od40e")
 
-[node name="LevelBase" type="Node2D"]
+[node name="LevelSpringWarp" type="Node2D"]
 
 [node name="LevelElements" type="Node2D" parent="."]
 position = Vector2(304, 192)

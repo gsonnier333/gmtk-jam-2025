@@ -30,14 +30,14 @@ const QUEUE_TICKS: int = 5
 var player_position_queue: PackedVector2Array = []
 var player_animation_frames_queue: Array = []
 var velocity_buffer: PackedVector2Array = []
-var max_queue_size: int
 var tick_count: int = 0
 var elapsed_time: float = 0.0
 var stop_shadow: bool = false
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	max_queue_size = int(Engine.get_physics_ticks_per_second() * reset_time_sec)
+	Events.resume_game.connect(_resume_game)
+	Events.pause_game.connect(_pause_game)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):
@@ -56,8 +56,9 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if player_sprite.animation == "default":
-		handle_movement(delta)
-		handle_velocity_buffer(velocity)
+		if !stop_shadow:
+			handle_movement(delta)
+			handle_velocity_buffer(velocity)
 		
 func handle_velocity_buffer(vel: Vector2) -> void:
 	velocity_buffer.append(vel)
@@ -153,8 +154,13 @@ func jump():
 
 func handle_escape():
 	Events.toggle_settings.emit()
-	stop_shadow = !stop_shadow
 
 func screen_wrap():
 	global_position.x = wrapf(global_position.x, 0, x_wrap)
 	global_position.y = wrapf(global_position.y, 0, y_wrap)
+	
+func _resume_game():
+	stop_shadow = false
+
+func _pause_game():
+	stop_shadow = true

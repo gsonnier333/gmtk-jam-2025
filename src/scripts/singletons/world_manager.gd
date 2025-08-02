@@ -5,6 +5,8 @@ extends Node
 func _ready() -> void:
 	Events.freeze_frame.connect(_freeze_frame)
 	Events.player_warped.connect(_warp_effect)
+	Events.pause_game.connect(_pause_game)
+	Events.resume_game.connect(_resume_game)
 	
 func _freeze_frame(timescale: float, duration: float) -> void:
 	Engine.time_scale = timescale
@@ -18,4 +20,13 @@ func _warp_effect(from: Vector2, flipped: bool) -> void:
 	loop.flip_h = flipped
 	
 	add_child(loop)
+	
+func _pause_game() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	Engine.time_scale = 0.0
+
+func _resume_game() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	Engine.time_scale = 1.0
+	
 	
