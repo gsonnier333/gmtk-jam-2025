@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://b3vkkxfajuqtj"]
+[gd_scene load_steps=13 format=4 uid="uid://b3vkkxfajuqtj"]
 
 [ext_resource type="Texture2D" uid="uid://dyiik375eq60v" path="res://assets/tile_sets/wall_tiles.png" id="1_cj0tx"]
 [ext_resource type="PackedScene" uid="uid://ohj5fnks44od" path="res://src/scenes/player.tscn" id="2_w1mhn"]
 [ext_resource type="PackedScene" uid="uid://ctvmmxyyhvcs6" path="res://src/scenes/level_components/spring.tscn" id="3_wnuen"]
 [ext_resource type="PackedScene" uid="uid://ivmw7reqr23a" path="res://src/scenes/level_components/level_exit.tscn" id="4_tk1ep"]
 [ext_resource type="PackedScene" uid="uid://xwokp02fqpwa" path="res://src/scenes/level_components/door.tscn" id="5_5yabk"]
+[ext_resource type="PackedScene" uid="uid://c40nas484ju3q" path="res://src/scenes/levels/level_spring_wrap.tscn" id="5_w1mhn"]
 [ext_resource type="PackedScene" uid="uid://csfdhp7ejy7r" path="res://src/scenes/level_components/pressure_plate.tscn" id="6_skmp7"]
 [ext_resource type="PackedScene" uid="uid://cscfma6e0ntb" path="res://src/scenes/game_camera.tscn" id="7_cvnnj"]
 
@@ -105,6 +106,7 @@ spring_power = -1200.0
 
 [node name="LevelExit" parent="LevelElements" instance=ExtResource("4_tk1ep")]
 position = Vector2(304, 140)
+next_level = ExtResource("5_w1mhn")
 
 [node name="Door" parent="LevelElements" instance=ExtResource("5_5yabk")]
 position = Vector2(263, 140)
