@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dyiik375eq60v" path="res://assets/tile_sets/wall_tiles.png" id="2_gkpm4"]
 [ext_resource type="PackedScene" uid="uid://cscfma6e0ntb" path="res://src/scenes/game_camera.tscn" id="3_gkpm4"]
 [ext_resource type="PackedScene" uid="uid://ivmw7reqr23a" path="res://src/scenes/level_components/level_exit.tscn" id="4_4hb7t"]
-[ext_resource type="PackedScene" uid="uid://dvu5u1n2nuf24" path="res://src/scenes/levels/level_two.tscn" id="5_xfcor"]
+[ext_resource type="PackedScene" uid="uid://5rqn2dimp58m" path="res://src/scenes/levels/level_three.tscn" id="5_4hb7t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ty81"]
 texture = ExtResource("2_gkpm4")
@@ -105,6 +105,6 @@ tile_set = SubResource("TileSet_ll86d")
 
 [node name="LevelExit" parent="LevelElements" instance=ExtResource("4_4hb7t")]
 position = Vector2(592, 268)
-next_level = ExtResource("5_xfcor")
+next_level = ExtResource("5_4hb7t")
 
 [node name="GameCamera" parent="." instance=ExtResource("3_gkpm4")]
