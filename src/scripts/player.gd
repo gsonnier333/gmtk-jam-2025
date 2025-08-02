@@ -33,6 +33,7 @@ var velocity_buffer: PackedVector2Array = []
 var max_queue_size: int
 var tick_count: int = 0
 var elapsed_time: float = 0.0
+var stop_shadow: bool = false
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -49,7 +50,8 @@ func _input(event: InputEvent) -> void:
 		go_to_shadow()
 
 func _process(delta: float) -> void:
-	move_shadow(delta)
+	if !stop_shadow:
+		move_shadow(delta)
 	
 
 func _physics_process(delta: float) -> void:
@@ -151,6 +153,7 @@ func jump():
 
 func handle_escape():
 	Events.toggle_settings.emit()
+	stop_shadow = !stop_shadow
 
 func screen_wrap():
 	global_position.x = wrapf(global_position.x, 0, x_wrap)

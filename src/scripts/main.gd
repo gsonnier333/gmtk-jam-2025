@@ -13,6 +13,7 @@ func _ready() -> void:
 func change_res(res_size: Vector2i):
 	print("Changing Resolution to %s" % res_size)
 	get_tree().root.set_size(res_size)
+	get_tree().root.move_to_center()
 		
 func _set_level(level_scene: PackedScene):
 	for child in world_manager.get_children():
