@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cv5x7kuvawsrn"]
+[gd_scene load_steps=2 format=3 uid="uid://2s6xhom21a8e"]
 
-[ext_resource type="Theme" uid="uid://h4tqpqhhb7k3" path="res://assets/themes/text_bubble_theme.tres" id="1_cy50p"]
+[ext_resource type="Theme" path="res://assets/themes/text_bubble_theme.tres" id="1_cy50p"]
 
 [node name="TextBubble" type="Label"]
 texture_filter = 1
