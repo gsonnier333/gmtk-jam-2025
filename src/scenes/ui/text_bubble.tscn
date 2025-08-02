@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv5x7kuvawsrn"]
+
+[ext_resource type="Theme" uid="uid://h4tqpqhhb7k3" path="res://assets/themes/text_bubble_theme.tres" id="1_cy50p"]
+
+[node name="TextBubble" type="Label"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_cy50p")
+text = "Example Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
