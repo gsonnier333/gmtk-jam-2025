@@ -11,7 +11,7 @@ func _ready() -> void:
 	Events.camera_shake.connect(apply_shake)
 
 func apply_shake(s_strength: float = 30.0, duration: float = 5.0):
-	print("shaking the screen with %s power for %s seconds" % [s_strength, duration])
+	#print("shaking the screen with %s power for %s seconds" % [s_strength, duration])
 	shake_strength = s_strength
 	shake_duration = duration
 	elapsed_time = 0.0
