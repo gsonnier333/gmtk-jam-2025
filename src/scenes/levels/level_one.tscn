@@ -104,7 +104,6 @@ tile_map_data = PackedByteArray("AAAAABIAAAADAAMAAAAAABMAAAADAAMAAAAAABQAAAADAAM
 tile_set = SubResource("TileSet_ll86d")
 
 [node name="LevelExit" parent="LevelElements" instance=ExtResource("4_4hb7t")]
-material = null
 position = Vector2(592, 268)
 next_level = ExtResource("5_4hb7t")
 
