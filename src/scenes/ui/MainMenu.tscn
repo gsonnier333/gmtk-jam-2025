@@ -39,7 +39,6 @@ size_flags_vertical = 3
 
 [node name="TitleCardLabel" type="Label" parent="CanvasLayer/Control/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
 text = "Schrodinger's Second Cat"
 horizontal_alignment = 1
 

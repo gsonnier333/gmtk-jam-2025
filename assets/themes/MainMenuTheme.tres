@@ -1,3 +1,8 @@
-[gd_resource type="Theme" format=3 uid="uid://dewlvvacylsh8"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dewlvvacylsh8"]
+
+[ext_resource type="FontFile" uid="uid://da4708jg6gxis" path="res://assets/fonts/16-bit-type.ttf" id="1_04jx1"]
 
 [resource]
+Button/fonts/font = ExtResource("1_04jx1")
+Label/font_sizes/font_size = 34
+Label/fonts/font = null
