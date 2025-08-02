@@ -5,6 +5,7 @@ class_name Main
 @onready var ui_sv_container: SubViewportContainer = %UISVContainer
 @onready var world_manager: Node2D = %WorldManager
 
+
 func _ready() -> void:
 	get_tree().root.content_scale_size = Vector2(0, 0)
 	Events.change_resolution.connect(change_res)
