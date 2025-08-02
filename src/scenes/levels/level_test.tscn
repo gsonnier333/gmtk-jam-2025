@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dnuvh17gyjilm"]
+[gd_scene load_steps=19 format=4 uid="uid://dnuvh17gyjilm"]
 
 [ext_resource type="Texture2D" uid="uid://dyiik375eq60v" path="res://assets/tile_sets/wall_tiles.png" id="1_7j8yv"]
 [ext_resource type="Texture2D" uid="uid://c10onu3rbchef" path="res://assets/sprites/test-box.png" id="1_h0hot"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://csfdhp7ejy7r" path="res://src/scenes/level_components/pressure_plate.tscn" id="5_wnsbw"]
 [ext_resource type="PackedScene" uid="uid://ivmw7reqr23a" path="res://src/scenes/level_components/level_exit.tscn" id="7_7j8yv"]
 [ext_resource type="PackedScene" uid="uid://cscfma6e0ntb" path="res://src/scenes/game_camera.tscn" id="7_dy7re"]
+[ext_resource type="PackedScene" uid="uid://bwl1bmqrda5bs" path="res://src/scenes/levels/level_one.tscn" id="9_0somv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7j8yv"]
 texture = ExtResource("1_7j8yv")
@@ -156,8 +157,6 @@ spring_power = -1200.0
 position = Vector2(82, -48)
 jump_velocity = -350.0
 reset_time_sec = 2.0
-x_wrap = 640.0
-y_wrap = 360.0
 shake_intensity = 1.5
 coyote_frames = 4
 
@@ -183,8 +182,8 @@ activate_objects = [NodePath("../Door"), NodePath("../Door2")]
 
 [node name="LevelEnd" parent="LevelElements" instance=ExtResource("7_7j8yv")]
 position = Vector2(-69, -304)
+next_level = ExtResource("9_0somv")
 
 [node name="GameCamera" parent="." instance=ExtResource("7_dy7re")]
-anchor_mode = 0
 
 [connection signal="warped" from="LevelElements/Player" to="." method="_on_player_warped"]

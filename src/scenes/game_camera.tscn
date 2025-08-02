@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://c1fhibee30lk4" path="res://src/scripts/game_camera.gd" id="1_8obhy"]
 
 [node name="GameCamera" type="Camera2D"]
+anchor_mode = 0
 script = ExtResource("1_8obhy")
