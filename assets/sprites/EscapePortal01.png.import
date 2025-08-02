@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdql050mi3egy"
-path.s3tc="res://.godot/imported/EscapePortal.png-44cd3f718adb34d2a88135f2165f723a.s3tc.ctex"
+uid="uid://ba5yjwfrylx7e"
+path.s3tc="res://.godot/imported/EscapePortal01.png-16940dbc8fb91a653a4f126c9c79dba1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/sprites/EscapePortal.png"
-dest_files=["res://.godot/imported/EscapePortal.png-44cd3f718adb34d2a88135f2165f723a.s3tc.ctex"]
+source_file="res://assets/sprites/EscapePortal01.png"
+dest_files=["res://.godot/imported/EscapePortal01.png-16940dbc8fb91a653a4f126c9c79dba1.s3tc.ctex"]
 
 [params]
 

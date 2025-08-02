@@ -1,7 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://ivmw7reqr23a"]
+[gd_scene load_steps=11 format=3 uid="uid://ivmw7reqr23a"]
 
 [ext_resource type="Script" uid="uid://btv7xnnelbsos" path="res://src/scripts/level_components/level_exit.gd" id="1_3be32"]
 [ext_resource type="Texture2D" uid="uid://bdql050mi3egy" path="res://assets/sprites/EscapePortal.png" id="1_pfso6"]
+[ext_resource type="Shader" uid="uid://bk8vqye5k012d" path="res://src/scripts/shaders/level_exit.gdshader" id="2_kw1xl"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kw1xl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5j788"]
+render_priority = 0
+shader = ExtResource("2_kw1xl")
+shader_parameter/albedo = Color(0, 0, 0, 1)
+shader_parameter/noise = SubResource("NoiseTexture2D_kw1xl")
+shader_parameter/distortion_intensity = 0.1
+shader_parameter/distortion_tiling = Vector2(1, 1)
+shader_parameter/distortion_offset_speed = Vector2(0, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3be32"]
 atlas = ExtResource("1_pfso6")
@@ -36,6 +48,7 @@ animations = [{
 size = Vector2(28, 30)
 
 [node name="LevelExit" type="Area2D"]
+material = SubResource("ShaderMaterial_5j788")
 script = ExtResource("1_3be32")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
