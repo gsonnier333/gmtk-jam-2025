@@ -128,7 +128,6 @@ func handle_movement(delta) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, acceleration/3)
 	
-	var hold = velocity
 	move_and_slide()
 
 func go_to_shadow():

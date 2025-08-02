@@ -1,16 +1,16 @@
-[gd_scene load_steps=14 format=4 uid="uid://1676h8iasuah"]
+[gd_scene load_steps=14 format=4 uid="uid://cb8oqg38nn6ml"]
 
-[ext_resource type="Texture2D" uid="uid://dyiik375eq60v" path="res://assets/tile_sets/wall_tiles.png" id="1_8s1af"]
-[ext_resource type="Texture2D" uid="uid://copfc6gawpsdm" path="res://assets/tile_sets/purple_glow.png" id="2_5cj2y"]
-[ext_resource type="PackedScene" uid="uid://ohj5fnks44od" path="res://src/scenes/player.tscn" id="2_wnwtl"]
-[ext_resource type="PackedScene" uid="uid://cscfma6e0ntb" path="res://src/scenes/game_camera.tscn" id="3_7vkvd"]
-[ext_resource type="PackedScene" uid="uid://xwokp02fqpwa" path="res://src/scenes/level_components/door.tscn" id="3_qys1l"]
-[ext_resource type="PackedScene" uid="uid://ivmw7reqr23a" path="res://src/scenes/level_components/level_exit.tscn" id="4_5cj2y"]
-[ext_resource type="PackedScene" uid="uid://csfdhp7ejy7r" path="res://src/scenes/level_components/pressure_plate.tscn" id="5_hgdd8"]
-[ext_resource type="PackedScene" uid="uid://ba0qrnahqfaf8" path="res://src/scenes/levels/level_spring_tutorial.tscn" id="6_hgdd8"]
+[ext_resource type="Texture2D" uid="uid://dyiik375eq60v" path="res://assets/tile_sets/wall_tiles.png" id="1_lxv70"]
+[ext_resource type="Texture2D" uid="uid://copfc6gawpsdm" path="res://assets/tile_sets/purple_glow.png" id="2_blhym"]
+[ext_resource type="PackedScene" uid="uid://ohj5fnks44od" path="res://src/scenes/player.tscn" id="3_ihkw2"]
+[ext_resource type="PackedScene" uid="uid://ivmw7reqr23a" path="res://src/scenes/level_components/level_exit.tscn" id="4_wgx0r"]
+[ext_resource type="PackedScene" uid="uid://xwokp02fqpwa" path="res://src/scenes/level_components/door.tscn" id="5_jf8q0"]
+[ext_resource type="PackedScene" uid="uid://csfdhp7ejy7r" path="res://src/scenes/level_components/pressure_plate.tscn" id="6_i3hw7"]
+[ext_resource type="PackedScene" uid="uid://ctvmmxyyhvcs6" path="res://src/scenes/level_components/spring.tscn" id="7_cfq4y"]
+[ext_resource type="PackedScene" uid="uid://cscfma6e0ntb" path="res://src/scenes/game_camera.tscn" id="8_h1xo2"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1qyj1"]
-texture = ExtResource("1_8s1af")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ll86d"]
+texture = ExtResource("1_lxv70")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -37,10 +37,10 @@ texture = ExtResource("1_8s1af")
 3:4/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_aecaa"]
-sources/0 = SubResource("TileSetAtlasSource_1qyj1")
+sources/0 = SubResource("TileSetAtlasSource_ll86d")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4q0kn"]
-texture = ExtResource("1_8s1af")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j5112"]
+texture = ExtResource("1_lxv70")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -74,8 +74,8 @@ texture = ExtResource("1_8s1af")
 3:4/0 = 0
 3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hgdd8"]
-texture = ExtResource("2_5cj2y")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_od40e"]
+texture = ExtResource("2_blhym")
 0:0/0 = 0
 1:0/0 = 0
 0:1/0 = 0
@@ -83,10 +83,10 @@ texture = ExtResource("2_5cj2y")
 
 [sub_resource type="TileSet" id="TileSet_ll86d"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_4q0kn")
-sources/1 = SubResource("TileSetAtlasSource_hgdd8")
+sources/0 = SubResource("TileSetAtlasSource_j5112")
+sources/1 = SubResource("TileSetAtlasSource_od40e")
 
-[node name="LevelBase" type="Node2D"]
+[node name="LevelDoorWarp" type="Node2D"]
 
 [node name="LevelElements" type="Node2D" parent="."]
 position = Vector2(297, 191)
@@ -98,33 +98,49 @@ tile_set = SubResource("TileSet_aecaa")
 
 [node name="PlatformLayer" type="TileMapLayer" parent="LevelElements"]
 position = Vector2(0, -4)
-tile_map_data = PackedByteArray("AADt/woAAAADAAMAAADu/woAAAADAAMAAADv/woAAAADAAMAAADw/woAAAADAAMAAADx/woAAAADAAMAAADy/woAAAADAAMAAADz/woAAAADAAMAAAD0/woAAAADAAMAAAD1/woAAAADAAMAAAD2/woAAAADAAMAAAD3/woAAAADAAMAAAD4/woAAAADAAMAAAD5/woAAAADAAMAAAD6/woAAAADAAMAAAD7/woAAAADAAMAAAD8/woAAAADAAMAAAD9/woAAAADAAMAAAD+/woAAAADAAMAAAD//woAAAADAAMAAAAAAAoAAAADAAMAAAABAAoAAAADAAMAAAACAAoAAAADAAMAAAADAAoAAAADAAMAAAAEAAoAAAADAAMAAAAFAAoAAAABAAQAAAAIAAoAAAABAAQAAAAJAAoAAAADAAMAAAAKAAoAAAADAAMAAAALAAoAAAADAAMAAAAMAAoAAAADAAMAAAANAAoAAAADAAMAAAAOAAoAAAADAAMAAAAPAAoAAAAAAAQAAAAQAAoAAAADAAMAAAARAAoAAAADAAMAAAASAAoAAAADAAMAAAATAAoAAAADAAMAAAAUAAoAAAADAAMAAAAVAAoAAAADAAMAAADt/wkAAAABAAMAAADt/wgAAAABAAMAAADt/wcAAAABAAMAAADt/wYAAAABAAMAAADt/wUAAAABAAMAAADt/wQAAAABAAMAAADt/wMAAAABAAMAAADt/wIAAAABAAMAAADt/wEAAAABAAMAAADt/wAAAAABAAMAAADt////AAABAAMAAADt//7/AAABAAMAAADt//3/AAABAAMAAADt//z/AAABAAMAAADt//v/AAABAAMAAADt//r/AAABAAMAAADt//n/AAABAAMAAADt//j/AAABAAMAAADt//f/AAABAAMAAADt//b/AAABAAMAAADt//X/AAABAAMAAADt//T/AAABAAMAAAAVAAkAAAABAAMAAAAVAAgAAAABAAMAAAAVAAcAAAABAAMAAAAVAAYAAAABAAMAAAAVAAUAAAABAAMAAAAVAAQAAAABAAMAAAAVAAMAAAABAAMAAAAVAAIAAAABAAMAAAAVAAEAAAABAAMAAAAVAAAAAAABAAMAAAAVAP//AAABAAMAAAAVAP7/AAABAAMAAAAVAP3/AAABAAMAAAAVAPz/AAABAAMAAAAVAPv/AAABAAMAAAAVAPr/AAABAAMAAAAVAPn/AAABAAMAAAAVAPj/AAABAAMAAAAVAPf/AAABAAMAAAAVAPb/AAABAAMAAAAVAPX/AAABAAMAAAAVAPT/AAABAAMAAAAUAPT/AAADAAMAAAATAPT/AAADAAMAAAASAPT/AAADAAMAAAARAPT/AAADAAMAAAAQAPT/AAADAAMAAAAPAPT/AAAAAAQAAAAOAPT/AAADAAMAAAANAPT/AAADAAMAAAAMAPT/AAADAAMAAAALAPT/AAADAAMAAAAKAPT/AAADAAMAAAAJAPT/AAADAAMAAAAIAPT/AAABAAQAAAAFAPT/AAABAAQAAAAEAPT/AAADAAMAAAADAPT/AAADAAMAAAACAPT/AAADAAMAAAABAPT/AAADAAMAAAAAAPT/AAADAAMAAAD///T/AAADAAMAAAD+//T/AAADAAMAAAD9//T/AAADAAMAAAD8//T/AAADAAMAAAD7//T/AAADAAMAAAD6//T/AAADAAMAAAD5//T/AAADAAMAAAD4//T/AAADAAMAAAD3//T/AAADAAMAAAD2//T/AAADAAMAAAD1//T/AAADAAMAAAD0//T/AAADAAMAAADz//T/AAADAAMAAADy//T/AAADAAMAAADx//T/AAADAAMAAADw//T/AAADAAMAAADv//T/AAADAAMAAADu//T/AAADAAMAAAAPAAcAAAAAAAQAAAAPAAYAAAAEAAMAAAAQAAYAAAAEAAMAAAARAAYAAAAEAAMAAAASAAYAAAAEAAMAAAATAAYAAAAEAAMAAAAUAAYAAAAEAAMAAADu/wIAAAAAAAQAAADx/wIAAAAAAAQAAADy/wIAAAAEAAMAAADz/wIAAAAEAAMAAAD0/wIAAAAEAAMAAAD1/wIAAAAEAAMAAAD2/wIAAAAEAAMAAAD3/wIAAAAEAAMAAAD4/wIAAAAEAAMAAAD5/wIAAAAEAAMAAAD6/wIAAAAEAAMAAAD7/wIAAAAEAAMAAAD8/wIAAAAEAAMAAAD9/wIAAAAEAAMAAAD+/wIAAAAEAAMAAAD//wIAAAAEAAMAAAAAAAIAAAAEAAMAAAABAAIAAAAEAAMAAAACAAIAAAAEAAMAAAADAAIAAAAEAAMAAAAEAAIAAAAEAAMAAAAFAAIAAAAEAAMAAAAGAAIAAAAEAAMAAAAHAAIAAAAEAAMAAAAIAAIAAAAEAAMAAAAJAAIAAAAEAAMAAAAKAAIAAAAEAAMAAAALAAIAAAAEAAMAAAAMAAIAAAAEAAMAAAANAAIAAAAEAAMAAAAOAAIAAAAEAAMAAAAPAAIAAAAEAAMAAAAQAAIAAAAEAAMAAAARAAIAAAAEAAMAAAASAAIAAAAEAAMAAAATAAIAAAAEAAMAAAAUAAIAAAAEAAMAAAAGAAoAAQAAAAAAAAAHAAoAAQAAAAAAAAAGAPT/AQAAAAEAAAAHAPT/AQAAAAEAAAA=")
+tile_map_data = PackedByteArray("AADt/woAAAADAAMAAADu/woAAAADAAMAAADv/woAAAADAAMAAADw/woAAAADAAMAAADx/woAAAADAAMAAADy/woAAAADAAMAAADz/woAAAADAAMAAAD0/woAAAADAAMAAAD1/woAAAADAAMAAAD2/woAAAADAAMAAAD3/woAAAADAAMAAAD4/woAAAADAAMAAAD5/woAAAADAAMAAAD6/woAAAADAAMAAAD7/woAAAADAAMAAAD8/woAAAADAAMAAAD9/woAAAADAAMAAAD+/woAAAADAAMAAAD//woAAAADAAMAAAAAAAoAAAADAAMAAAABAAoAAAADAAMAAAACAAoAAAADAAMAAAADAAoAAAADAAMAAAAEAAoAAAADAAMAAAAFAAoAAAADAAMAAAAGAAoAAAADAAMAAAAHAAoAAAADAAMAAAAIAAoAAAADAAMAAAAJAAoAAAADAAMAAAAKAAoAAAADAAMAAAALAAoAAAADAAMAAAAMAAoAAAADAAMAAAANAAoAAAADAAMAAAAOAAoAAAADAAMAAAAPAAoAAAADAAMAAAAQAAoAAAADAAMAAAARAAoAAAADAAMAAAASAAoAAAADAAMAAAATAAoAAAADAAMAAAAUAAoAAAADAAMAAAAVAAoAAAADAAMAAADt/wkAAAABAAMAAADt/wgAAAABAAMAAADt/wcAAAABAAMAAADt/wYAAAABAAMAAADt/wUAAAABAAMAAADt/wQAAAABAAMAAADt/wMAAAABAAMAAADt/wIAAAABAAMAAADt/wEAAAABAAMAAADt/wAAAAABAAMAAADt////AAABAAMAAADt//7/AAABAAMAAADt//3/AAABAAMAAADt//z/AAABAAMAAADt//v/AAABAAMAAADt//r/AAABAAMAAADt//n/AAABAAMAAADt//j/AAABAAMAAADt//f/AAABAAMAAADt//b/AAABAAMAAADt//X/AAABAAMAAADt//T/AAABAAMAAAAVAAkAAAABAAMAAAAVAAgAAAABAAMAAAAVAAcAAAABAAMAAAAVAAYAAAABAAMAAAAVAAUAAAABAAMAAAAVAAQAAAABAAMAAAAVAAMAAAABAAMAAAAVAAIAAAABAAMAAAAVAAEAAAABAAMAAAAVAAAAAAABAAMAAAAVAP//AAABAAMAAAAVAP7/AAABAAMAAAAVAP3/AAABAAMAAAAVAPz/AAABAAMAAAAVAPv/AAABAAMAAAAVAPr/AAABAAMAAAAVAPn/AAABAAMAAAAVAPj/AAABAAMAAAAVAPf/AAABAAMAAAAVAPb/AAABAAMAAAAVAPX/AAABAAMAAAAVAPT/AAABAAMAAAAUAPT/AAADAAMAAAATAPT/AAADAAMAAAASAPT/AAADAAMAAAARAPT/AAADAAMAAAAQAPT/AAADAAMAAAAPAPT/AAADAAMAAAAOAPT/AAADAAMAAAANAPT/AAADAAMAAAAMAPT/AAADAAMAAAALAPT/AAADAAMAAAAKAPT/AAADAAMAAAAJAPT/AAADAAMAAAAIAPT/AAADAAMAAAAHAPT/AAADAAMAAAAGAPT/AAADAAMAAAAFAPT/AAADAAMAAAAEAPT/AAADAAMAAAADAPT/AAADAAMAAAACAPT/AAADAAMAAAABAPT/AAADAAMAAAAAAPT/AAADAAMAAAD///T/AAADAAMAAAD+//T/AAADAAMAAAD9//T/AAADAAMAAAD8//T/AAADAAMAAAD7//T/AAADAAMAAAD6//T/AAADAAMAAAD5//T/AAADAAMAAAD4//T/AAADAAMAAAD3//T/AAADAAMAAAD2//T/AAADAAMAAAD1//T/AAADAAMAAAD0//T/AAADAAMAAADv//T/AAADAAMAAADu//T/AAADAAMAAADw//T/AAADAAMAAADx//T/AAADAAMAAADy//T/AAADAAMAAADz//T/AAADAAMAAAAJAAUAAAAAAAQAAAAKAAUAAAAAAAQAAAALAAUAAAAAAAQAAAAMAAUAAAAAAAQAAAANAAUAAAAAAAQAAAAOAAUAAAAAAAQAAAAIAAUAAAAAAAQAAAAHAAUAAAAAAAQAAAAGAAUAAAAAAAQAAAAFAAUAAAAAAAQAAAAEAAUAAAAAAAQAAAADAAUAAAAAAAQAAAACAAUAAAAAAAQAAAACAAYAAAABAAMAAAACAAcAAAABAAMAAAAIAAYAAAABAAMAAAAIAAcAAAABAAMAAAAOAAYAAAABAAMAAAAOAAcAAAABAAMAAAAOAAQAAAABAAMAAAAOAAMAAAABAAMAAAAOAAIAAAABAAMAAAAOAAEAAAABAAMAAAAOAAAAAAABAAMAAAAOAP//AAABAAMAAAAOAP7/AAABAAMAAAAOAP3/AAABAAMAAAAOAPz/AAABAAMAAAAOAPv/AAABAAMAAAAOAPr/AAABAAMAAAANAPr/AAACAAMAAFAMAPr/AAACAAMAAFALAPr/AAACAAMAAFAKAPr/AAACAAMAAFAJAPr/AAACAAMAAFAIAPr/AAACAAMAAFAHAPr/AAACAAMAAFAGAPr/AAACAAMAAFADAPr/AAACAAMAAFACAPr/AAACAAMAAFACAPv/AAABAAMAAAACAPz/AAABAAMAAAACAP3/AAABAAMAAAACAP7/AAABAAMAAAACAP//AAABAAMAAAACAAAAAAABAAMAAAACAAEAAAABAAMAAAACAAIAAAABAAMAAAACAAMAAAABAAMAAAACAAQAAAABAAMAAAA=")
 tile_set = SubResource("TileSet_ll86d")
 
-[node name="Player" parent="LevelElements" instance=ExtResource("2_wnwtl")]
-position = Vector2(-237, 148)
+[node name="Player" parent="LevelElements" instance=ExtResource("3_ihkw2")]
+position = Vector2(-249, 147)
 jump_velocity = -350.0
 reset_time_sec = 2.0
 shake_intensity = 1.5
 coyote_frames = 4
 
-[node name="Door" parent="LevelElements" instance=ExtResource("3_qys1l")]
-position = Vector2(247, 140)
+[node name="LevelExit" parent="LevelElements" instance=ExtResource("4_wgx0r")]
+position = Vector2(190, 59)
 
-[node name="Door2" parent="LevelElements" instance=ExtResource("3_qys1l")]
-position = Vector2(-256, 36)
+[node name="Doors" type="Node2D" parent="LevelElements"]
+
+[node name="Door" parent="LevelElements/Doors" instance=ExtResource("5_jf8q0")]
+position = Vector2(39, 140)
+
+[node name="Door2" parent="LevelElements/Doors" instance=ExtResource("5_jf8q0")]
+position = Vector2(135, 140)
+activated = false
+
+[node name="Door3" parent="LevelElements/Doors" instance=ExtResource("5_jf8q0")]
+position = Vector2(232, 140)
+
+[node name="DoorExit" parent="LevelElements/Doors" instance=ExtResource("5_jf8q0")]
+position = Vector2(80, -93)
 rotation = 1.5708
 activated = false
 
-[node name="LevelExit" parent="LevelElements" instance=ExtResource("4_5cj2y")]
-position = Vector2(304, 140)
-next_level = ExtResource("6_hgdd8")
+[node name="PressurePlate" parent="LevelElements" node_paths=PackedStringArray("activate_objects") instance=ExtResource("6_i3hw7")]
+position = Vector2(-97, 148)
+activate_objects = [NodePath("../Doors/Door"), NodePath("../Doors/Door3"), NodePath("../Doors/Door2"), NodePath("../Doors/DoorExit")]
 
-[node name="PressurePlate" parent="LevelElements" node_paths=PackedStringArray("activate_objects") instance=ExtResource("5_hgdd8")]
-position = Vector2(112, 20)
-activate_objects = [NodePath("../Door"), NodePath("../Door2")]
+[node name="PressurePlate2" parent="LevelElements" node_paths=PackedStringArray("activate_objects") instance=ExtResource("6_i3hw7")]
+position = Vector2(188, 148)
+activate_objects = [NodePath("../Doors/Door")]
 
-[node name="GameCamera" parent="." instance=ExtResource("3_7vkvd")]
+[node name="Spring" parent="LevelElements" instance=ExtResource("7_cfq4y")]
+position = Vector2(305, 140)
+spring_power = -900.0
+
+[node name="GameCamera" parent="." instance=ExtResource("8_h1xo2")]
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(640, 360)
