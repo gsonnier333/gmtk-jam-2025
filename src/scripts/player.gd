@@ -55,8 +55,9 @@ func _process(delta: float) -> void:
 	
 
 func _physics_process(delta: float) -> void:
-	handle_movement(delta)
-	handle_velocity_buffer(velocity)
+	if player_sprite.animation == "default":
+		handle_movement(delta)
+		handle_velocity_buffer(velocity)
 		
 func handle_velocity_buffer(vel: Vector2) -> void:
 	velocity_buffer.append(vel)
