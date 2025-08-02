@@ -16,10 +16,14 @@ func _ready() -> void:
 
 func _on_pressure_plate_area_body_entered(body: Node2D) -> void:
 	if body is Player:
+		var activate_sound_played := false
 		sound_effect.play()
 		for obj in activate_objects:
 			if obj.has_method("toggle"):
 				obj.toggle()
+				if obj.has_method("play_sound") and !activate_sound_played:
+					activate_sound_played = true
+					obj.play_sound()
 		activate_sprite.hide()
 		plate_base_sprite.show()
 
