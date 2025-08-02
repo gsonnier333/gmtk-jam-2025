@@ -1,8 +1,12 @@
+<<<<<<< HEAD:src/scenes/levels/level_springs.tscn
+[gd_scene load_steps=12 format=4 uid="uid://dhpuecif7y2ha"]
+=======
 <<<<<<< HEAD:src/scenes/levels/level_spring_tutorial.tscn
 [gd_scene load_steps=13 format=4 uid="uid://y15ip7ysjhbs"]
 =======
 [gd_scene load_steps=12 format=4 uid="uid://c5v3icl0nw4wq"]
 >>>>>>> b37b8ff21a1110b46e7668c6d484a070f76bd155:src/scenes/levels/level_springs.tscn
+>>>>>>> main:src/scenes/levels/level_spring_tutorial.tscn
 
 [ext_resource type="Texture2D" uid="uid://dyiik375eq60v" path="res://assets/tile_sets/wall_tiles.png" id="1_nrcoy"]
 [ext_resource type="Texture2D" uid="uid://copfc6gawpsdm" path="res://assets/tile_sets/purple_glow.png" id="2_6ukk1"]

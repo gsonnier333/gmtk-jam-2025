@@ -107,6 +107,7 @@ position = Vector2(193, 148)
 activate_objects = [NodePath("../Door")]
 
 [node name="LevelExit" parent="LevelElements" instance=ExtResource("5_fc6c2")]
+material = null
 position = Vector2(16, 140)
 next_level = ExtResource("6_84fyk")
 
