@@ -123,8 +123,8 @@ position = Vector2(640, 360)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TextBubble" parent="CanvasLayer" instance=ExtResource("8_qghj2")]
-offset_left = 216.0
-offset_top = 42.0
-offset_right = -216.0
-offset_bottom = -278.0
+offset_left = 238.0
+offset_top = 174.0
+offset_right = -194.0
+offset_bottom = -146.0
 text = "Press F to Loop"
