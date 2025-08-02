@@ -85,7 +85,7 @@ unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_rk7mp")
 animation = &"door_open"
 
-[node name="SoundEffect" type="AudioStreamPlayer2D" parent="."]
+[node name="SoundEffect" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("3_fnhkg")
 bus = &"SFX"
