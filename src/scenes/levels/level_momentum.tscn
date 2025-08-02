@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ctvmmxyyhvcs6" path="res://src/scenes/level_components/spring.tscn" id="3_wnuen"]
 [ext_resource type="PackedScene" uid="uid://ivmw7reqr23a" path="res://src/scenes/level_components/level_exit.tscn" id="4_tk1ep"]
 [ext_resource type="PackedScene" uid="uid://xwokp02fqpwa" path="res://src/scenes/level_components/door.tscn" id="5_5yabk"]
-[ext_resource type="PackedScene" uid="uid://c40nas484ju3q" path="res://src/scenes/levels/level_spring_wrap.tscn" id="5_w1mhn"]
+[ext_resource type="PackedScene" uid="uid://u84hcred077g" path="res://src/scenes/levels/level_spring_wrap_momentum.tscn" id="5_w1mhn"]
 [ext_resource type="PackedScene" uid="uid://csfdhp7ejy7r" path="res://src/scenes/level_components/pressure_plate.tscn" id="6_skmp7"]
 [ext_resource type="PackedScene" uid="uid://cscfma6e0ntb" path="res://src/scenes/game_camera.tscn" id="7_cvnnj"]
 

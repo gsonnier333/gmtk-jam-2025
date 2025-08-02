@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ivmw7reqr23a" path="res://src/scenes/level_components/level_exit.tscn" id="4_1u18x"]
 [ext_resource type="PackedScene" uid="uid://cscfma6e0ntb" path="res://src/scenes/game_camera.tscn" id="4_8sg0o"]
 [ext_resource type="PackedScene" uid="uid://ctvmmxyyhvcs6" path="res://src/scenes/level_components/spring.tscn" id="5_8sg0o"]
-[ext_resource type="PackedScene" uid="uid://b3vkkxfajuqtj" path="res://src/scenes/levels/level_momentum.tscn" id="5_jhf7j"]
+[ext_resource type="PackedScene" uid="uid://c40nas484ju3q" path="res://src/scenes/levels/level_spring_wrap.tscn" id="5_jhf7j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ll86d"]
 texture = ExtResource("1_nrcoy")
