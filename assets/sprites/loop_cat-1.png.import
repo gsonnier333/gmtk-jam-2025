@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvr7si7flm2fl"
-path="res://.godot/imported/tarot-10-wheel-of-fortune.svg-4488bcf4980e2ad03213498ca7187dde.ctex"
+uid="uid://c1ilkq5vakhdc"
+path="res://.godot/imported/loop_cat-1.png-6e15ec3b84c6ea7d2e70b51e90c9555b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tarot-10-wheel-of-fortune.svg"
-dest_files=["res://.godot/imported/tarot-10-wheel-of-fortune.svg-4488bcf4980e2ad03213498ca7187dde.ctex"]
+source_file="res://assets/sprites/loop_cat-1.png"
+dest_files=["res://.godot/imported/loop_cat-1.png-6e15ec3b84c6ea7d2e70b51e90c9555b.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
