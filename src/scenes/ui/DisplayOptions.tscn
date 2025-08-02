@@ -84,5 +84,19 @@ size_flags_horizontal = 3
 [node name="CheckButton" type="CheckButton" parent="MarginContainer/VBoxContainer/VSync"]
 layout_mode = 2
 
+[node name="ShowFps" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ShowFps"]
+layout_mode = 2
+text = "Show FPS"
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/ShowFps"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CheckButton" type="CheckButton" parent="MarginContainer/VBoxContainer/ShowFps"]
+layout_mode = 2
+
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Resolutions/DisplayOptions" to="." method="_on_display_options_item_selected"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/FullScreen/CheckButton" to="." method="_on_check_button_toggled"]

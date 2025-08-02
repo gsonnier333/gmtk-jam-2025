@@ -42,12 +42,12 @@ grow_horizontal = 2
 grow_vertical = 2
 stretch = true
 
-[node name="UI Render" type="SubViewport" parent="CanvasLayer/UISVContainer"]
+[node name="Settings Render" type="SubViewport" parent="CanvasLayer/UISVContainer"]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(640, 360)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
-[node name="Settings" parent="CanvasLayer/UISVContainer/UI Render" instance=ExtResource("2_1hqvy")]
+[node name="Settings" parent="CanvasLayer/UISVContainer/Settings Render" instance=ExtResource("2_1hqvy")]
 visible = false

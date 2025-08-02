@@ -18,14 +18,14 @@ func _ready():
 	activated = activated
 
 func activate():
-	print("activate called")
+	#print("activate called")
 	if collision_shape:
 		collision_shape.set_disabled.call_deferred(true)
 	if door_animated_sprite:
 		door_animated_sprite.play("door_open")
 
 func deactivate():
-	print("deactivate called")
+	#print("deactivate called")
 	if collision_shape:
 		collision_shape.set_disabled.call_deferred(false)
 	if door_animated_sprite:
