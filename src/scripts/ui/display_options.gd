@@ -8,19 +8,26 @@ var display_resolutions: Array = [
 	Vector2i(2560, 1440)
 ]
 @onready var display_options: OptionButton = %DisplayOptions
+var cur_item_index: int
 
 func _ready() -> void:
-	var item_id: int = display_options.get_selected_id()
-	var item_index: int = display_options.get_item_index(item_id)
-	print("emiting signal %s" % [display_resolutions[item_index]])
-	Events.change_resolution.emit.call_deferred(display_resolutions[item_index])
+	var item_id = display_options.get_selected_id()
+	cur_item_index = display_options.get_item_index(item_id)
+	var cur_res = display_resolutions[cur_item_index]
+	print("emiting signal %s" % [cur_res])
+	Events.change_resolution.emit.call_deferred(cur_res)
 
 func _on_check_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
+		display_options.disabled = true
+		display_options.selected = -1
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 	else:
+		display_options.disabled = false
+		display_options.selected = cur_item_index
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 
 func _on_display_options_item_selected(index: int) -> void:
-	Events.change_resolution.emit(display_resolutions[index])
+	cur_item_index = index
+	Events.change_resolution.emit(display_resolutions[cur_item_index])

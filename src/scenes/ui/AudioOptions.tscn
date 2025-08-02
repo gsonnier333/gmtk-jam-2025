@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bf7r1ldpmimy7"]
+[gd_scene load_steps=2 format=3 uid="uid://bf7r1ldpmimy7"]
+
+[ext_resource type="Script" uid="uid://1lqe0iin8udq" path="res://src/scripts/ui/audio_options.gd" id="1_vml45"]
 
 [node name="AudioOptions" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vml45")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -37,10 +40,70 @@ text = "Master Volume"
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Value" type="Label" parent="MarginContainer/VBoxContainer/Master Volume/HBoxContainer"]
+[node name="MasterAudioLabel" type="Label" parent="MarginContainer/VBoxContainer/Master Volume/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/Master Volume"]
+[node name="MasterAudioSlider" type="HSlider" parent="MarginContainer/VBoxContainer/Master Volume"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+value = 50.0
 tick_count = 20
+ticks_on_borders = true
+
+[node name="Music Volume" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Music Volume"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Music Volume/HBoxContainer"]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/Music Volume/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MusicAudioLabel" type="Label" parent="MarginContainer/VBoxContainer/Music Volume/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MusicAudioSlider" type="HSlider" parent="MarginContainer/VBoxContainer/Music Volume"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+value = 50.0
+tick_count = 20
+ticks_on_borders = true
+
+[node name="SFX Volume" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/SFX Volume"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/SFX Volume/HBoxContainer"]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/SFX Volume/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SfxAudioLabel" type="Label" parent="MarginContainer/VBoxContainer/SFX Volume/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SfxAudioSlider" type="HSlider" parent="MarginContainer/VBoxContainer/SFX Volume"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+value = 50.0
+tick_count = 20
+ticks_on_borders = true
+
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/Master Volume/MasterAudioSlider" to="." method="_on_master_audio_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/Music Volume/MusicAudioSlider" to="." method="_on_music_audio_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/SFX Volume/SfxAudioSlider" to="." method="_on_sfx_audio_slider_value_changed"]

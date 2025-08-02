@@ -5,7 +5,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hgwla"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hvgil"]
-bg_color = Color(0.384314, 0.384314, 0.384314, 0.882353)
+bg_color = Color(0.241592, 0.366497, 0.671296, 0.882353)
 
 [resource]
 Label/colors/font_color = Color(1, 1, 1, 1)
