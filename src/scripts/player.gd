@@ -5,8 +5,8 @@ class_name Player
 @export var acceleration: float = 40.0
 @export var jump_velocity: float = -700.0
 @export var reset_time_sec: float = 5.0
-@export var x_wrap: float = 384.0
-@export var y_wrap: float = -216.0
+@export var x_wrap: float = 640.0
+@export var y_wrap: float = 360.0
 
 @export var time_slow: float = 0.1
 @export var time_stop_duration: float = 0.2

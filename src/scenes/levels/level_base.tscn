@@ -26,8 +26,6 @@ tile_set = SubResource("TileSet_ll86d")
 position = Vector2(-239, 149)
 jump_velocity = -350.0
 reset_time_sec = 2.0
-x_wrap = 640.0
-y_wrap = 360.0
 shake_intensity = 1.5
 coyote_frames = 4
 
