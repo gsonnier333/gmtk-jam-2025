@@ -4,6 +4,7 @@ class_name Main
 @onready var game_sv_container: SubViewportContainer = %GameSVContainer
 @onready var ui_sv_container: SubViewportContainer = %UISVContainer
 @onready var world_manager: Node2D = %WorldManager
+@onready var settings: Settings = %Settings
 
 @export var cur_level: PackedScene
 
@@ -13,10 +14,13 @@ func _ready() -> void:
 	Events.change_level.connect(_set_level_deffered)
 	Events.restart_level.connect(_restart_level_deffered)
 	Events.start_game.connect(_start_game)
+	Events.toggle_options.connect(_toggle_options)
+	Events.return_from_options.connect(_return_from_options)
 	
 func _start_game():
 	Bgm.play()
 	_set_level(cur_level)
+	
 
 func change_res(res_size: Vector2i):
 	print("Changing Resolution to %s" % res_size)
@@ -45,3 +49,11 @@ func _restart_level():
 	
 func _restart_level_deffered():
 	_restart_level.call_deferred()
+
+func _toggle_options() -> void:
+	if !settings.visible:
+		settings.visible = true
+
+func _return_from_options() -> void:
+	settings.hide()
+	

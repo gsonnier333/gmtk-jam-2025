@@ -1,7 +1,7 @@
 extends Node2D
 class_name TimerPressurePlate
 
-@export var timer_time: float = 3.0
+@export var timer_time: float = 3.5
 @export var activate_objects: Array[Node2D]
 
 @onready var activate_collision: CollisionShape2D = %ActivateCollision
@@ -27,10 +27,10 @@ func _on_pressure_plate_area_body_entered(body: Node2D) -> void:
 					if obj.has_method("play_sound") and !activate_sound_played:
 						activate_sound_played = true
 						obj.play_sound()
-		timer.start()
-		sound_effect.play()
-		activate_sprite.hide()
-		plate_base_sprite.show()
+			timer.start()
+			sound_effect.play()
+			activate_sprite.hide()
+			plate_base_sprite.show()
 
 
 func _on_timer_timeout() -> void:

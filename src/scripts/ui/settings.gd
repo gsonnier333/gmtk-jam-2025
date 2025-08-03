@@ -1,17 +1,16 @@
 extends Control
 class_name Settings
 
-@onready var pause_menu: MarginContainer = %PauseMenu
-@onready var back_button: Button = %BackButton
-@onready var options: VBoxContainer = %Options
+@onready var pause_menu: Control = %PauseMenu
+@onready var options: Control = %Options
 
 
 func _ready() -> void:
+	Events.start_game.connect(reset_settings)
 	Events.toggle_settings.connect(toggle_settings_helper)
-
-func _on_exit_button_pressed() -> void:
-	get_tree().quit()
-
+	Events.resume_game.connect(reset_settings)
+	#Events.return_from_options.connect(_on_back_button_pressed)
+	
 func toggle_settings_helper():
 	if visible:
 		reset_settings()
@@ -19,27 +18,6 @@ func toggle_settings_helper():
 	else:
 		show()
 		Events.pause_game.emit()
-
-func _on_resume_pressed() -> void:
-	UiClick.play()
-	reset_settings()
-	Events.resume_game.emit()
-
-func _on_options_button_pressed() -> void:
-	UiClick.play()
-	options.show()
-	pause_menu.hide()
-
-func _on_back_button_pressed() -> void:
-	UiClick.play()
-	options.hide()
-	pause_menu.show()
-
-func _on_restart_pressed() -> void:
-	UiClick.play()
-	reset_settings()
-	Events.restart_level.emit()
-	Events.resume_game.emit()
 	
 func reset_settings() -> void:
 	visible = false
