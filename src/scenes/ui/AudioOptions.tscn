@@ -104,6 +104,12 @@ value = 50.0
 tick_count = 20
 ticks_on_borders = true
 
+[connection signal="changed" from="MarginContainer/VBoxContainer/Master Volume/MasterAudioSlider" to="." method="_on_master_audio_slider_changed"]
+[connection signal="drag_ended" from="MarginContainer/VBoxContainer/Master Volume/MasterAudioSlider" to="." method="_on_master_audio_slider_drag_ended"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/Master Volume/MasterAudioSlider" to="." method="_on_master_audio_slider_value_changed"]
+[connection signal="changed" from="MarginContainer/VBoxContainer/Music Volume/MusicAudioSlider" to="." method="_on_music_audio_slider_changed"]
+[connection signal="drag_ended" from="MarginContainer/VBoxContainer/Music Volume/MusicAudioSlider" to="." method="_on_music_audio_slider_drag_ended"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/Music Volume/MusicAudioSlider" to="." method="_on_music_audio_slider_value_changed"]
+[connection signal="changed" from="MarginContainer/VBoxContainer/SFX Volume/SfxAudioSlider" to="." method="_on_sfx_audio_slider_changed"]
+[connection signal="drag_ended" from="MarginContainer/VBoxContainer/SFX Volume/SfxAudioSlider" to="." method="_on_sfx_audio_slider_drag_ended"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/SFX Volume/SfxAudioSlider" to="." method="_on_sfx_audio_slider_value_changed"]

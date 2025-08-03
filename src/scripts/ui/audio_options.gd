@@ -27,3 +27,15 @@ func _on_music_audio_slider_value_changed(value: float) -> void:
 func _on_sfx_audio_slider_value_changed(value: float) -> void:
 	sfx_audio_label.text = str(int(value))
 	AudioServer.set_bus_volume_linear(2, value / 100.0)
+
+
+func _on_master_audio_slider_drag_ended(value_changed: bool) -> void:
+	UiClick.play()
+
+
+func _on_music_audio_slider_drag_ended(value_changed: bool) -> void:
+	UiClick.play()
+
+
+func _on_sfx_audio_slider_drag_ended(value_changed: bool) -> void:
+	UiClick.play()

@@ -12,6 +12,10 @@ func _ready() -> void:
 	Events.change_resolution.connect(change_res)
 	Events.change_level.connect(_set_level_deffered)
 	Events.restart_level.connect(_restart_level_deffered)
+	Events.start_game.connect(_start_game)
+	
+func _start_game():
+	Bgm.play()
 	_set_level(cur_level)
 
 func change_res(res_size: Vector2i):

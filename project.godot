@@ -19,6 +19,7 @@ config/icon="uid://c1ilkq5vakhdc"
 
 Events="*res://src/scripts/singletons/events.gd"
 Bgm="*res://src/scenes/bgm.tscn"
+UiClick="*res://src/scenes/ui/ui_click.tscn"
 
 [debug]
 

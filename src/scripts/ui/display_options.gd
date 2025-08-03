@@ -18,6 +18,7 @@ func _ready() -> void:
 	Events.change_resolution.emit.call_deferred(cur_res)
 
 func _on_check_button_toggled(toggled_on: bool) -> void:
+	UiClick.play()
 	if toggled_on:
 		display_options.disabled = true
 		display_options.selected = -1
@@ -29,5 +30,6 @@ func _on_check_button_toggled(toggled_on: bool) -> void:
 
 
 func _on_display_options_item_selected(index: int) -> void:
+	UiClick.play()
 	cur_item_index = index
 	Events.change_resolution.emit(display_resolutions[cur_item_index])

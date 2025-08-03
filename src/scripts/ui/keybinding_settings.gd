@@ -38,6 +38,7 @@ func _create_action_list():
 		button.pressed.connect(_on_input_button_pressed.bind(button, action))
 
 func _on_input_button_pressed(button: Button, action: String):
+	UiClick.play()
 	if !is_remapping:
 		is_remapping = true
 		action_to_remap = action
@@ -68,4 +69,5 @@ func _update_action_list(button: Button, event: InputEvent):
 
 
 func _on_reset_button_pressed() -> void:
+	UiClick.play()
 	_create_action_list()

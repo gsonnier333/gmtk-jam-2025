@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cagpbc1kscx0j"]
+
+[ext_resource type="AudioStream" uid="uid://wsndtng4synq" path="res://assets/audio/ui_click.mp3" id="1_777ur"]
+
+[node name="UiClick" type="AudioStreamPlayer"]
+stream = ExtResource("1_777ur")
+volume_db = -11.0
+bus = &"SFX"
