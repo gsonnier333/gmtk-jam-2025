@@ -16,6 +16,7 @@ func toggle_settings_helper():
 		reset_settings()
 		Events.resume_game.emit()
 	else:
+		reset_settings()
 		show()
 		Events.pause_game.emit()
 	

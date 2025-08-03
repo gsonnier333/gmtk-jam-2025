@@ -1,10 +1,13 @@
 extends Control
 
+var game_started: bool = false
+
 func _ready() -> void:
 	Events.return_from_options.connect(_back_button_pressed)
 
 func _on_start_game_pressed() -> void:
 	UiClick.play()
+	game_started = true
 	Events.start_game.emit()
 	hide()
 	
@@ -20,4 +23,5 @@ func _on_options_button_pressed() -> void:
 	Events.toggle_options.emit()
 	
 func _back_button_pressed() -> void:
-	show()
+	if !game_started:
+		show()
