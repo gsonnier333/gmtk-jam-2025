@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://xwokp02fqpwa" path="res://src/scenes/level_components/door.tscn" id="4_7fqta"]
 [ext_resource type="PackedScene" uid="uid://cscfma6e0ntb" path="res://src/scenes/game_camera.tscn" id="4_myhry"]
 [ext_resource type="PackedScene" uid="uid://csfdhp7ejy7r" path="res://src/scenes/level_components/pressure_plate.tscn" id="5_xes2t"]
-[ext_resource type="PackedScene" uid="uid://b5mwnktdss3rv" path="res://src/scenes/levels/level_end.tscn" id="6_j47ij"]
+[ext_resource type="PackedScene" uid="uid://dgg5wjdur3jcr" path="res://src/scenes/levels/level_sp_mom_doors.tscn" id="6_j47ij"]
 [ext_resource type="PackedScene" uid="uid://ivmw7reqr23a" path="res://src/scenes/level_components/level_exit.tscn" id="6_myhry"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aecaa"]

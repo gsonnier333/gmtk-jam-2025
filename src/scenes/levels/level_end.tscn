@@ -276,6 +276,36 @@ position = Vector2(40, 28)
 rotation = 3.14159
 spring_power = -1200.0
 
+[node name="Spring39" parent="LevelElements" instance=ExtResource("4_4hydg")]
+position = Vector2(21, 269)
+rotation = 0.649262
+spring_power = -1200.0
+
+[node name="Spring40" parent="LevelElements" instance=ExtResource("4_4hydg")]
+position = Vector2(25, 124)
+rotation = 2.0944
+spring_power = -1200.0
+
+[node name="Spring41" parent="LevelElements" instance=ExtResource("4_4hydg")]
+position = Vector2(621, 267)
+rotation = -0.757473
+spring_power = -1200.0
+
+[node name="Spring42" parent="LevelElements" instance=ExtResource("4_4hydg")]
+position = Vector2(616, 117)
+rotation = 3.72802
+spring_power = -1200.0
+
+[node name="Spring43" parent="LevelElements" instance=ExtResource("4_4hydg")]
+position = Vector2(27, 204)
+rotation = 1.5708
+spring_power = -1200.0
+
+[node name="Spring44" parent="LevelElements" instance=ExtResource("4_4hydg")]
+position = Vector2(613, 204)
+rotation = 4.71239
+spring_power = -1200.0
+
 [node name="GameCamera" parent="." instance=ExtResource("4_x7tjp")]
 
 [node name="Marker2D" type="Marker2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bwl1bmqrda5bs"]
+[gd_scene load_steps=13 format=4 uid="uid://bwl1bmqrda5bs"]
 
 [ext_resource type="PackedScene" uid="uid://ohj5fnks44od" path="res://src/scenes/player.tscn" id="1_tm0fu"]
 [ext_resource type="Texture2D" uid="uid://c10onu3rbchef" path="res://assets/sprites/test-box.png" id="2_4ty81"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cscfma6e0ntb" path="res://src/scenes/game_camera.tscn" id="3_gkpm4"]
 [ext_resource type="PackedScene" uid="uid://ivmw7reqr23a" path="res://src/scenes/level_components/level_exit.tscn" id="4_4hb7t"]
 [ext_resource type="PackedScene" uid="uid://5rqn2dimp58m" path="res://src/scenes/levels/level_three.tscn" id="5_4hb7t"]
+[ext_resource type="PackedScene" uid="uid://2s6xhom21a8e" path="res://src/scenes/ui/text_bubble.tscn" id="7_xfcor"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ty81"]
 texture = ExtResource("2_gkpm4")
@@ -108,3 +109,14 @@ position = Vector2(592, 268)
 next_level = ExtResource("5_4hb7t")
 
 [node name="GameCamera" parent="." instance=ExtResource("3_gkpm4")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextBubble" parent="CanvasLayer" instance=ExtResource("7_xfcor")]
+offset_left = 25.0
+offset_top = 22.0
+offset_right = -483.0
+offset_bottom = -263.0
+text = "A = Move Left
+D = Move Right
+Space = Jump"
