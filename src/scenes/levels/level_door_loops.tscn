@@ -133,7 +133,8 @@ position = Vector2(-97, 148)
 activate_objects = [NodePath("../Doors/Door"), NodePath("../Doors/Door3"), NodePath("../Doors/Door2"), NodePath("../Doors/DoorExit")]
 
 [node name="PressurePlate2" parent="LevelElements" node_paths=PackedStringArray("activate_objects") instance=ExtResource("6_i3hw7")]
-position = Vector2(192, 148)
+position = Vector2(184, 100)
+rotation = 3.14159
 activate_objects = [NodePath("../Doors/Door"), NodePath("../Doors/Door2")]
 
 [node name="Spring" parent="LevelElements" instance=ExtResource("7_cfq4y")]
