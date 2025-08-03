@@ -130,6 +130,8 @@ speed = 200.0
 acceleration = 30.0
 jump_velocity = -300.0
 reset_time_sec = 3.0
+coyote_frames = 8
+vel_buffer_max_frames = 7
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
