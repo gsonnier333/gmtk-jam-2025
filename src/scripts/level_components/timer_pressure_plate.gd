@@ -32,11 +32,6 @@ func _on_pressure_plate_area_body_entered(body: Node2D) -> void:
 		activate_sprite.hide()
 		plate_base_sprite.show()
 
-func _on_pressure_plate_area_body_exited(body: Node2D) -> void:
-	if body is Player:
-		activate_sprite.show()
-		plate_base_sprite.hide()
-
 
 func _on_timer_timeout() -> void:
 	timer.stop()
@@ -48,3 +43,5 @@ func _on_timer_timeout() -> void:
 			if obj.has_method("play_sound") and !activate_sound_played:
 				activate_sound_played = true
 				obj.play_sound()
+	activate_sprite.show()
+	plate_base_sprite.hide()

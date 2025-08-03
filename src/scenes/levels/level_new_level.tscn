@@ -130,7 +130,7 @@ rotation = 4.71239
 activate_objects = [NodePath("../../Exit/Door3")]
 
 [node name="TimerPressurePlate" parent="LevelElements/PressurePlates" node_paths=PackedStringArray("activate_objects") instance=ExtResource("7_sr44l")]
-position = Vector2(173, 340)
+position = Vector2(231, 340)
 timer_time = 3.55
 activate_objects = [NodePath("../../Door")]
 
