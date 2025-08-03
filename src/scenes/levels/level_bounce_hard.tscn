@@ -1,16 +1,14 @@
-[gd_scene load_steps=14 format=4 uid="uid://do2haeyc8csb0"]
+[gd_scene load_steps=12 format=4 uid="uid://bvuv6hihgu2q0"]
 
-[ext_resource type="Texture2D" uid="uid://dyiik375eq60v" path="res://assets/tile_sets/wall_tiles.png" id="1_te05e"]
-[ext_resource type="Texture2D" uid="uid://copfc6gawpsdm" path="res://assets/tile_sets/purple_glow.png" id="2_7fqta"]
-[ext_resource type="PackedScene" uid="uid://ohj5fnks44od" path="res://src/scenes/player.tscn" id="3_xes2t"]
-[ext_resource type="PackedScene" uid="uid://xwokp02fqpwa" path="res://src/scenes/level_components/door.tscn" id="4_7fqta"]
-[ext_resource type="PackedScene" uid="uid://cscfma6e0ntb" path="res://src/scenes/game_camera.tscn" id="4_myhry"]
-[ext_resource type="PackedScene" uid="uid://csfdhp7ejy7r" path="res://src/scenes/level_components/pressure_plate.tscn" id="5_xes2t"]
-[ext_resource type="PackedScene" uid="uid://b5mwnktdss3rv" path="res://src/scenes/levels/level_end.tscn" id="6_j47ij"]
-[ext_resource type="PackedScene" uid="uid://ivmw7reqr23a" path="res://src/scenes/level_components/level_exit.tscn" id="6_myhry"]
+[ext_resource type="Texture2D" uid="uid://dyiik375eq60v" path="res://assets/tile_sets/wall_tiles.png" id="1_4av0s"]
+[ext_resource type="Texture2D" uid="uid://copfc6gawpsdm" path="res://assets/tile_sets/purple_glow.png" id="2_hqfcq"]
+[ext_resource type="PackedScene" uid="uid://ctvmmxyyhvcs6" path="res://src/scenes/level_components/spring.tscn" id="3_hqfcq"]
+[ext_resource type="PackedScene" uid="uid://ohj5fnks44od" path="res://src/scenes/player.tscn" id="3_mhc5c"]
+[ext_resource type="PackedScene" uid="uid://cscfma6e0ntb" path="res://src/scenes/game_camera.tscn" id="4_xm3m5"]
+[ext_resource type="PackedScene" uid="uid://ivmw7reqr23a" path="res://src/scenes/level_components/level_exit.tscn" id="6_7oyu0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aecaa"]
-texture = ExtResource("1_te05e")
+texture = ExtResource("1_4av0s")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -40,7 +38,7 @@ texture = ExtResource("1_te05e")
 sources/0 = SubResource("TileSetAtlasSource_aecaa")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_od40e"]
-texture = ExtResource("1_te05e")
+texture = ExtResource("1_4av0s")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -75,7 +73,7 @@ texture = ExtResource("1_te05e")
 3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ll86d"]
-texture = ExtResource("2_7fqta")
+texture = ExtResource("2_hqfcq")
 0:0/0 = 0
 1:0/0 = 0
 0:1/0 = 0
@@ -86,7 +84,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_od40e")
 sources/1 = SubResource("TileSetAtlasSource_ll86d")
 
-[node name="LevelDoorHell" type="Node2D"]
+[node name="LevelBase" type="Node2D"]
 
 [node name="LevelElements" type="Node2D" parent="."]
 
@@ -97,90 +95,36 @@ tile_set = SubResource("TileSet_4q0kn")
 
 [node name="PlatformLayer" type="TileMapLayer" parent="LevelElements"]
 position = Vector2(0, -4)
-tile_map_data = PackedByteArray("AAAAABYAAAABAAMAAAAAABUAAAABAAMAAAAAABQAAAABAAMAAAAAABMAAAABAAMAAAAAABIAAAABAAMAAAAAABEAAAABAAMAAAAAABAAAAABAAMAAAAAAA8AAAABAAMAAAAAAA4AAAABAAMAAAAAAA0AAAABAAMAAAAAAAwAAAABAAMAAAAAAAsAAAABAAMAAAAAAAoAAAABAAMAAAAAAAkAAAABAAMAAAAAAAgAAAABAAMAAAAAAAcAAAABAAMAAAAAAAYAAAABAAMAAAAAAAUAAAABAAMAAAAAAAQAAAABAAMAAAAAAAMAAAABAAMAAAAAAAIAAAABAAMAAAAAAAEAAAABAAMAAAAAAAAAAAABAAMAAAAnABYAAAABAAMAAAAnABUAAAABAAMAAAAnABQAAAABAAMAAAAnABMAAAABAAMAAAAnABIAAAABAAMAAAAnABEAAAABAAMAAAAnABAAAAABAAMAAAAnAA8AAAABAAMAAAAnAA4AAAABAAMAAAAnAA0AAAABAAMAAAAnAAwAAAABAAMAAAAnAAsAAAABAAMAAAAnAAoAAAABAAMAAAAnAAkAAAABAAMAAAAnAAgAAAABAAMAAAAnAAcAAAABAAMAAAAnAAYAAAABAAMAAAAnAAUAAAABAAMAAAAnAAQAAAABAAMAAAAnAAMAAAABAAMAAAAnAAIAAAABAAMAAAAnAAEAAAABAAMAAAAnAAAAAAABAAMAAAABABYAAAADAAMAAAACABYAAAADAAMAAAADABYAAAADAAMAAAAEABYAAAADAAMAAAAFABYAAAADAAMAAAAGABYAAAADAAMAAAAHABYAAAAAAAQAAAAIABYAAAADAAMAAAAJABYAAAADAAMAAAARABYAAAAAAAQAAAASABYAAAADAAMAAAATABYAAAADAAMAAAAUABYAAAADAAMAAAAVABYAAAADAAMAAAAWABYAAAAAAAQAAAAXABYAAAADAAMAAAAYABYAAAADAAMAAAAZABYAAAADAAMAAAAaABYAAAADAAMAAAAbABYAAAAAAAQAAAAcABYAAAAAAAQAAAAfABYAAAAAAAQAAAAgABYAAAADAAMAAAAhABYAAAADAAMAAAAiABYAAAADAAMAAAAjABYAAAADAAMAAAAkABYAAAADAAMAAAAlABYAAAADAAMAAAAmABYAAAADAAMAAAABAAAAAAADAAMAAAACAAAAAAADAAMAAAADAAAAAAADAAMAAAAEAAAAAAADAAMAAAAFAAAAAAADAAMAAAAGAAAAAAADAAMAAAAHAAAAAAADAAMAAAAIAAAAAAADAAMAAAAJAAAAAAADAAMAAAAKAAAAAAADAAMAAAALAAAAAAADAAMAAAAMAAAAAAADAAMAAAANAAAAAAADAAMAAAAOAAAAAAADAAMAAAAPAAAAAAADAAMAAAAQAAAAAAADAAMAAAARAAAAAAADAAMAAAASAAAAAAADAAMAAAATAAAAAAADAAMAAAAUAAAAAAADAAMAAAAVAAAAAAADAAMAAAAWAAAAAAADAAMAAAAXAAAAAAADAAMAAAAYAAAAAAADAAMAAAAZAAAAAAADAAMAAAAaAAAAAAADAAMAAAAbAAAAAAADAAMAAAAcAAAAAAADAAMAAAAfAAAAAAADAAMAAAAgAAAAAAADAAMAAAAhAAAAAAADAAMAAAAiAAAAAAADAAMAAAAjAAAAAAADAAMAAAAkAAAAAAADAAMAAAAlAAAAAAADAAMAAAAmAAAAAAADAAMAAAAHABMAAAAAAAQAAAAKABYAAAADAAMAAAALABYAAAADAAMAAAAMABYAAAAAAAQAAAANABYAAAADAAMAAAAOABYAAAADAAMAAAAPABYAAAADAAMAAAAQABYAAAADAAMAAAAHABIAAAABAAMAAAAHABEAAAAAAAQAAAAIABEAAAADAAMAAAAJABEAAAADAAMAAAAKABEAAAADAAMAAAALABEAAAADAAMAAAAMABEAAAAAAAQAAAAMABIAAAABAAMAAAAMABMAAAAAAAQAAAAHAA4AAAAAAAQAAAAMAA4AAAAAAAQAAAAHAA0AAAABAAMAAAAMAA0AAAABAAMAAAAHAAwAAAADAAMAAAAIAAwAAAADAAMAAAAJAAwAAAADAAMAAAAKAAwAAAADAAMAAAALAAwAAAADAAMAAAAMAAwAAAADAAMAAAARABMAAAAAAAQAAAARABEAAAAAAAQAAAARAA4AAAAAAAQAAAAWAA4AAAAAAAQAAAAWABEAAAAAAAQAAAAWABMAAAAAAAQAAAAbAA4AAAAAAAQAAAAbABEAAAAAAAQAAAAbABMAAAAAAAQAAAANABEAAAADAAMAAAAOABEAAAADAAMAAAAPABEAAAADAAMAAAAQABEAAAADAAMAAAASABEAAAADAAMAAAATABEAAAADAAMAAAAUABEAAAADAAMAAAAVABEAAAADAAMAAAAXABEAAAADAAMAAAAYABEAAAADAAMAAAAZABEAAAADAAMAAAAaABEAAAADAAMAAAAcABEAAAADAAMAAAAdABEAAAADAAMAAAAeABEAAAADAAMAAAAfABEAAAADAAMAAAANAAwAAAADAAMAAAAOAAwAAAADAAMAAAAPAAwAAAADAAMAAAAQAAwAAAADAAMAAAARAAwAAAADAAMAAAASAAwAAAADAAMAAAATAAwAAAADAAMAAAAUAAwAAAADAAMAAAAVAAwAAAADAAMAAAAWAAwAAAADAAMAAAAXAAwAAAADAAMAAAAYAAwAAAADAAMAAAAZAAwAAAADAAMAAAAaAAwAAAADAAMAAAAbAAwAAAABAAMAAAARAA0AAAABAAMAAAAWAA0AAAABAAMAAAAbAA0AAAABAAMAAAARABIAAAABAAMAAAAWABIAAAABAAMAAAAbABIAAAABAAMAAAAGABEAAAAEAAMAAAAFABEAAAAEAAMAAAAEABAAAAAEAAMAAAADABAAAAAEAAMAAAACAA8AAAAEAAMAAAABAA8AAAAEAAMAAAAFAAwAAAAEAAMAAAAGAAwAAAAEAAMAAAAbAAsAAAABAAMAAAAbAAoAAAABAAMAAAAbAAkAAAABAAMAAAAbAAgAAAABAAMAAAAbAAcAAAABAAMAAAAbAAYAAAABAAMAAAAbAAUAAAABAAMAAAAbAAQAAAABAAMAAAAbAAMAAAABAAMAAAAbAAIAAAABAAMAAAAbAAEAAAABAAMAAAAdABYAAQAAAAAAAAAeABYAAQAAAAAAAAAdAAAAAQAAAAEAAAAeAAAAAQAAAAEAAAAgABEAAAADAAMAAAAhABEAAAADAAMAAAAiABEAAAADAAMAAAA=")
+tile_map_data = PackedByteArray("AAAAABYAAAABAAMAAAAAABUAAAABAAMAAAAAABQAAAABAAMAAAAAABMAAAABAAMAAAAAABIAAAABAAMAAAAAABEAAAABAAMAAAAAABAAAAABAAMAAAAAAA8AAAABAAMAAAAAAA4AAAABAAMAAAAAAA0AAAABAAMAAAAAAAwAAAABAAMAAAAAAAsAAAABAAMAAAAAAAoAAAABAAMAAAAAAAkAAAABAAMAAAAAAAgAAAABAAMAAAAAAAcAAAABAAMAAAAAAAYAAAABAAMAAAAAAAUAAAABAAMAAAAAAAQAAAABAAMAAAAAAAMAAAABAAMAAAAAAAIAAAABAAMAAAAAAAEAAAABAAMAAAAAAAAAAAABAAMAAAAnABYAAAABAAMAAAAnABUAAAABAAMAAAAnABQAAAABAAMAAAAnABMAAAABAAMAAAAnABIAAAABAAMAAAAnABEAAAABAAMAAAAnABAAAAABAAMAAAAnAA8AAAABAAMAAAAnAA4AAAABAAMAAAAnAA0AAAABAAMAAAAnAAwAAAABAAMAAAAnAAsAAAABAAMAAAAnAAoAAAABAAMAAAAnAAkAAAABAAMAAAAnAAgAAAABAAMAAAAnAAcAAAABAAMAAAAnAAYAAAABAAMAAAAnAAUAAAABAAMAAAAnAAQAAAABAAMAAAAnAAMAAAABAAMAAAAnAAIAAAABAAMAAAAnAAEAAAABAAMAAAAnAAAAAAABAAMAAAABABYAAAADAAMAAAACABYAAAADAAMAAAADABYAAAADAAMAAAAEABYAAAADAAMAAAAFABYAAAADAAMAAAAGABYAAAADAAMAAAAHABYAAAADAAMAAAAIABYAAAADAAMAAAAJABYAAAADAAMAAAAKABYAAAADAAMAAAALABYAAAADAAMAAAAMABYAAAADAAMAAAANABYAAAADAAMAAAAOABYAAAADAAMAAAAPABYAAAADAAMAAAAQABYAAAADAAMAAAARABYAAAADAAMAAAASABYAAAADAAMAAAATABYAAAADAAMAAAAUABYAAAADAAMAAAAVABYAAAADAAMAAAAWABYAAAADAAMAAAAXABYAAAADAAMAAAAYABYAAAADAAMAAAAZABYAAAADAAMAAAAaABYAAAADAAMAAAAbABYAAAADAAMAAAAcABYAAAADAAMAAAAdABYAAAADAAMAAAAeABYAAAADAAMAAAAfABYAAAADAAMAAAAgABYAAAADAAMAAAAhABYAAAADAAMAAAAiABYAAAADAAMAAAAjABYAAAADAAMAAAAkABYAAAADAAMAAAAlABYAAAADAAMAAAAmABYAAAADAAMAAAABAAAAAAADAAMAAAACAAAAAAADAAMAAAADAAAAAAADAAMAAAAEAAAAAAADAAMAAAAGAAAAAAADAAMAAAAHAAAAAAADAAMAAAAIAAAAAAADAAMAAAAJAAAAAAACAAMAAAALAAAAAAADAAMAAAAMAAAAAAADAAMAAAANAAAAAAADAAMAAAAOAAAAAAADAAMAAAAPAAAAAAADAAMAAAAQAAAAAAADAAMAAAARAAAAAAADAAMAAAASAAAAAAADAAMAAAATAAAAAAADAAMAAAAUAAAAAAADAAMAAAAVAAAAAAADAAMAAAAWAAAAAAADAAMAAAAXAAAAAAADAAMAAAAYAAAAAAADAAMAAAAZAAAAAAADAAMAAAAaAAAAAAADAAMAAAAbAAAAAAADAAMAAAAcAAAAAAACAAMAAAAdAAAAAAACAAMAAAAeAAAAAAADAAMAAAAfAAAAAAADAAMAAAAgAAAAAAADAAMAAAAhAAAAAAADAAMAAAAiAAAAAAADAAMAAAAjAAAAAAADAAMAAAAkAAAAAAADAAMAAAAlAAAAAAADAAMAAAAmAAAAAAADAAMAAAAFAAAAAAADAAMAAAAKAAAAAAACAAMAAAAcAAMAAAACAAMAAAAdAAMAAAACAAMAAAAdAAQAAAACAAMAAAAdAAUAAAACAAMAAAAdAAYAAAACAAMAAAAdAAcAAAACAAMAAAAdAAgAAAACAAMAAAAdAAkAAAACAAMAAAAdAAoAAAACAAMAAAAdAAsAAAACAAMAAAAdAAwAAAACAAMAAAAdAA0AAAACAAMAAAAdAA4AAAACAAMAAAAdAA8AAAACAAMAAAAdABAAAAACAAMAAAAdABEAAAACAAMAAAAcAAQAAAACAAMAAAAcAAUAAAACAAMAAAAcAAYAAAACAAMAAAAcAAcAAAACAAMAAAAcAAgAAAACAAMAAAAcAAkAAAACAAMAAAAcAAoAAAACAAMAAAAcAAsAAAACAAMAAAAcAAwAAAACAAMAAAAcAA0AAAACAAMAAAAcAA4AAAACAAMAAAAcAA8AAAACAAMAAAAcABAAAAACAAMAAAAcABEAAAACAAMAAAAKAAEAAAACAAMAAAAKAAIAAAACAAMAAAAKAAMAAAACAAMAAAAKAAQAAAACAAMAAAAKAAUAAAACAAMAAAAKAAYAAAACAAMAAAAKAAcAAAACAAMAAAAKAAgAAAACAAMAAAAKAAkAAAACAAMAAAAKAAoAAAACAAMAAAAKAAsAAAACAAMAAAAKAAwAAAACAAMAAAAKAA0AAAACAAMAAAAKAA4AAAACAAMAAAAKAA8AAAACAAMAAAAKABAAAAACAAMAAAAKABEAAAACAAMAAAAcAAEAAAACAAMAAAAcAAIAAAACAAMAAAAdAAEAAAACAAMAAAAdAAIAAAACAAMAAAAJAAEAAAACAAMAAAAJAAIAAAACAAMAAAAJAAMAAAACAAMAAAAJAAQAAAACAAMAAAAJAAUAAAACAAMAAAAJAAYAAAACAAMAAAAJAAcAAAACAAMAAAAJAAgAAAACAAMAAAAJAAkAAAACAAMAAAAJAAoAAAACAAMAAAAJAAsAAAACAAMAAAAJAAwAAAACAAMAAAAJAA0AAAACAAMAAAAJAA4AAAACAAMAAAAJAA8AAAACAAMAAAAJABAAAAACAAMAAAAJABEAAAACAAMAAAA=")
 tile_set = SubResource("TileSet_j5112")
 
-[node name="Player" parent="LevelElements" instance=ExtResource("3_xes2t")]
-position = Vector2(31, 340)
+[node name="Spring" parent="LevelElements" instance=ExtResource("3_hqfcq")]
+position = Vector2(192, 332)
+
+[node name="Spring2" parent="LevelElements" instance=ExtResource("3_hqfcq")]
+position = Vector2(192, 36)
+rotation = 1.48353
+spring_power = -900.0
+
+[node name="Spring3" parent="LevelElements" instance=ExtResource("3_hqfcq")]
+position = Vector2(432, 36)
+rotation = 4.79966
+spring_power = -900.0
+
+[node name="Spring4" parent="LevelElements" instance=ExtResource("3_hqfcq")]
+position = Vector2(432, 332)
+
+[node name="LevelExit" parent="LevelElements" instance=ExtResource("6_7oyu0")]
+position = Vector2(318, 324)
+
+[node name="Player" parent="LevelElements" instance=ExtResource("3_mhc5c")]
+position = Vector2(61, 340)
 jump_velocity = -350.0
 reset_time_sec = 2.0
 shake_intensity = 1.5
 coyote_frames = 4
 
-[node name="PressurePlate" parent="LevelElements" node_paths=PackedStringArray("activate_objects") instance=ExtResource("5_xes2t")]
-position = Vector2(96, 292)
-rotation = 3.14159
-activate_objects = [NodePath("../BottomDoors/Door")]
-
-[node name="LevelExit" parent="LevelElements" instance=ExtResource("6_myhry")]
-position = Vector2(400, 172)
-next_level = ExtResource("6_j47ij")
-
-[node name="BottomDoors" type="Node" parent="LevelElements"]
-
-[node name="Door" parent="LevelElements/BottomDoors" instance=ExtResource("4_7fqta")]
-position = Vector2(119, 332)
-
-[node name="Door2" parent="LevelElements/BottomDoors" instance=ExtResource("4_7fqta")]
-position = Vector2(199, 332)
-
-[node name="Door3" parent="LevelElements/BottomDoors" instance=ExtResource("4_7fqta")]
-position = Vector2(279, 332)
-activated = false
-
-[node name="Door4" parent="LevelElements/BottomDoors" instance=ExtResource("4_7fqta")]
-position = Vector2(359, 332)
-
-[node name="Door5" parent="LevelElements/BottomDoors" instance=ExtResource("4_7fqta")]
-position = Vector2(439, 332)
-activated = false
-
-[node name="TopDoors" type="Node" parent="LevelElements"]
-
-[node name="Door" parent="LevelElements/TopDoors" instance=ExtResource("4_7fqta")]
-position = Vector2(119, 252)
-activated = false
-
-[node name="Door2" parent="LevelElements/TopDoors" instance=ExtResource("4_7fqta")]
-position = Vector2(199, 252)
-
-[node name="Door3" parent="LevelElements/TopDoors" instance=ExtResource("4_7fqta")]
-position = Vector2(279, 252)
-
-[node name="Door4" parent="LevelElements/TopDoors" instance=ExtResource("4_7fqta")]
-position = Vector2(359, 252)
-
-[node name="Door5" parent="LevelElements/TopDoors" instance=ExtResource("4_7fqta")]
-position = Vector2(439, 252)
-
-[node name="BottomSwitches" type="Node" parent="LevelElements"]
-
-[node name="PressurePlate" parent="LevelElements/BottomSwitches" node_paths=PackedStringArray("activate_objects") instance=ExtResource("5_xes2t")]
-position = Vector2(160, 292)
-rotation = 3.14159
-activate_objects = [NodePath("../../BottomDoors/Door"), NodePath("../../BottomDoors/Door2"), NodePath("../../BottomDoors/Door3"), NodePath("../../BottomDoors/Door4"), NodePath("../../BottomDoors/Door5"), NodePath("../../TopDoors/Door"), NodePath("../../TopDoors/Door2")]
-
-[node name="PressurePlate2" parent="LevelElements/BottomSwitches" node_paths=PackedStringArray("activate_objects") instance=ExtResource("5_xes2t")]
-position = Vector2(240, 292)
-rotation = 3.14159
-activate_objects = [NodePath("../../BottomDoors/Door2"), NodePath("../../BottomDoors/Door3"), NodePath("../../BottomDoors/Door4"), NodePath("../../BottomDoors/Door5"), NodePath("../../TopDoors/Door2"), NodePath("../../TopDoors/Door3")]
-
-[node name="PressurePlate3" parent="LevelElements/BottomSwitches" node_paths=PackedStringArray("activate_objects") instance=ExtResource("5_xes2t")]
-position = Vector2(320, 292)
-rotation = 3.14159
-activate_objects = [NodePath("../../BottomDoors/Door3"), NodePath("../../BottomDoors/Door4"), NodePath("../../BottomDoors/Door5"), NodePath("../../TopDoors/Door3"), NodePath("../../TopDoors/Door4")]
-
-[node name="PressurePlate4" parent="LevelElements/BottomSwitches" node_paths=PackedStringArray("activate_objects") instance=ExtResource("5_xes2t")]
-position = Vector2(400, 292)
-rotation = 3.14159
-activate_objects = [NodePath("../../BottomDoors/Door4"), NodePath("../../BottomDoors/Door5"), NodePath("../../TopDoors/Door4"), NodePath("../../TopDoors/Door5")]
-
-[node name="PressurePlate5" parent="LevelElements/BottomSwitches" node_paths=PackedStringArray("activate_objects") instance=ExtResource("5_xes2t")]
-position = Vector2(616, 332)
-rotation = 4.71239
-activate_objects = [NodePath("../../BottomDoors/Door5")]
-
-[node name="GameCamera" parent="." instance=ExtResource("4_myhry")]
+[node name="GameCamera" parent="." instance=ExtResource("4_xm3m5")]
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(640, 360)

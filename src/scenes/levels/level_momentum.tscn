@@ -39,7 +39,7 @@ texture = ExtResource("1_cj0tx")
 [sub_resource type="TileSet" id="TileSet_bhl7d"]
 sources/0 = SubResource("TileSetAtlasSource_xwcbl")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_goiqf"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w1mhn"]
 texture = ExtResource("1_cj0tx")
 0:0/0 = 0
 1:0/0 = 0
@@ -76,7 +76,7 @@ texture = ExtResource("1_cj0tx")
 
 [sub_resource type="TileSet" id="TileSet_2kd0l"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_goiqf")
+sources/0 = SubResource("TileSetAtlasSource_w1mhn")
 
 [node name="LevelMomentum" type="Node2D"]
 
