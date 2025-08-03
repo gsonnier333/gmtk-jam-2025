@@ -7,6 +7,7 @@ func _ready() -> void:
 func _on_back_button_pressed() -> void:
 	hide()
 	Events.return_from_options.emit()
+	Events.resume_game.emit()
 
 func _toggle_options() -> void:
 	visible = !visible

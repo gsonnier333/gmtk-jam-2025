@@ -24,4 +24,5 @@ func _on_options_button_pressed() -> void:
 	
 func _back_button_pressed() -> void:
 	if !game_started:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		show()
