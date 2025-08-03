@@ -128,7 +128,7 @@ rotation = 1.5708
 activate_objects = [NodePath("../Door")]
 
 [node name="Door" parent="LevelElements" instance=ExtResource("7_m4e6g")]
-position = Vector2(64, 163)
+position = Vector2(64, 159)
 rotation = 1.5708
 
 [node name="GameCamera" parent="." instance=ExtResource("8_kppur")]
