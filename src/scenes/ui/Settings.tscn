@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://u1p0pv37ev8c"]
+[gd_scene load_steps=5 format=3 uid="uid://u1p0pv37ev8c"]
 
-[ext_resource type="PackedScene" uid="uid://bi4tleiooi0i" path="res://src/scenes/ui/DisplayOptions.tscn" id="1_v3olk"]
 [ext_resource type="Theme" uid="uid://bcc4gyjyys7xl" path="res://assets/themes/settings_theme.tres" id="1_vxpv2"]
 [ext_resource type="Script" uid="uid://bc2ty10irlplj" path="res://src/scripts/ui/settings.gd" id="1_y2h3x"]
-[ext_resource type="PackedScene" uid="uid://bf7r1ldpmimy7" path="res://src/scenes/ui/AudioOptions.tscn" id="2_bm5fs"]
-[ext_resource type="PackedScene" uid="uid://c20xvcjjap7am" path="res://src/scenes/ui/KeybindingSettings.tscn" id="3_55n3l"]
+[ext_resource type="PackedScene" uid="uid://cnlkomfumdlvg" path="res://src/scenes/ui/pause_menu.tscn" id="3_1ox72"]
+[ext_resource type="PackedScene" uid="uid://c2xurt35k1l5y" path="res://src/scenes/ui/options_menu.tscn" id="4_y2h3x"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -31,145 +30,12 @@ grow_vertical = 2
 [node name="Panel" type="Panel" parent="PanelContainer"]
 layout_mode = 2
 
-[node name="PauseMenu" type="MarginContainer" parent="PanelContainer/Panel"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Panel/PauseMenu"]
-layout_mode = 2
-
-[node name="Spacer" type="Control" parent="PanelContainer/Panel/PauseMenu/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Resume" type="HBoxContainer" parent="PanelContainer/Panel/PauseMenu/VBoxContainer"]
-layout_mode = 2
-
-[node name="Spacer" type="Control" parent="PanelContainer/Panel/PauseMenu/VBoxContainer/Resume"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Resume" type="Button" parent="PanelContainer/Panel/PauseMenu/VBoxContainer/Resume"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Resume"
-
-[node name="Spacer2" type="Control" parent="PanelContainer/Panel/PauseMenu/VBoxContainer/Resume"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Restart" type="HBoxContainer" parent="PanelContainer/Panel/PauseMenu/VBoxContainer"]
-layout_mode = 2
-
-[node name="Spacer" type="Control" parent="PanelContainer/Panel/PauseMenu/VBoxContainer/Restart"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Restart" type="Button" parent="PanelContainer/Panel/PauseMenu/VBoxContainer/Restart"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Restart Level"
-
-[node name="Spacer2" type="Control" parent="PanelContainer/Panel/PauseMenu/VBoxContainer/Restart"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Options" type="HBoxContainer" parent="PanelContainer/Panel/PauseMenu/VBoxContainer"]
-layout_mode = 2
-
-[node name="Spacer" type="Control" parent="PanelContainer/Panel/PauseMenu/VBoxContainer/Options"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="OptionsButton" type="Button" parent="PanelContainer/Panel/PauseMenu/VBoxContainer/Options"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Options
-"
-
-[node name="Spacer2" type="Control" parent="PanelContainer/Panel/PauseMenu/VBoxContainer/Options"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Exit" type="HBoxContainer" parent="PanelContainer/Panel/PauseMenu/VBoxContainer"]
-layout_mode = 2
-
-[node name="Spacer" type="Control" parent="PanelContainer/Panel/PauseMenu/VBoxContainer/Exit"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Exit Button" type="Button" parent="PanelContainer/Panel/PauseMenu/VBoxContainer/Exit"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Exit Game"
-
-[node name="Spacer2" type="Control" parent="PanelContainer/Panel/PauseMenu/VBoxContainer/Exit"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Spacer2" type="Control" parent="PanelContainer/Panel/PauseMenu/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Options" type="VBoxContainer" parent="PanelContainer/Panel"]
+[node name="PauseMenu" parent="PanelContainer/Panel" instance=ExtResource("3_1ox72")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Panel/Options"]
-layout_mode = 2
-
-[node name="Spacer" type="Control" parent="PanelContainer/Panel/Options/HBoxContainer"]
-custom_minimum_size = Vector2(5, 0)
-layout_mode = 2
-
-[node name="BackButton" type="Button" parent="PanelContainer/Panel/Options/HBoxContainer"]
+[node name="Options" parent="PanelContainer/Panel" instance=ExtResource("4_y2h3x")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "BACK"
-
-[node name="Control" type="Control" parent="PanelContainer/Panel/Options/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="OptionsPage" type="TabContainer" parent="PanelContainer/Panel/Options"]
-layout_mode = 2
-size_flags_vertical = 3
-current_tab = 0
-
-[node name="Display Options" parent="PanelContainer/Panel/Options/OptionsPage" instance=ExtResource("1_v3olk")]
-layout_mode = 2
-metadata/_tab_index = 0
-
-[node name="Audio Options" parent="PanelContainer/Panel/Options/OptionsPage" instance=ExtResource("2_bm5fs")]
 visible = false
-layout_mode = 2
-metadata/_tab_index = 1
-
-[node name="Keybindings" parent="PanelContainer/Panel/Options/OptionsPage" instance=ExtResource("3_55n3l")]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 2
-
-[connection signal="pressed" from="PanelContainer/Panel/PauseMenu/VBoxContainer/Resume/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="PanelContainer/Panel/PauseMenu/VBoxContainer/Restart/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="PanelContainer/Panel/PauseMenu/VBoxContainer/Options/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="PanelContainer/Panel/PauseMenu/VBoxContainer/Exit/Exit Button" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="PanelContainer/Panel/Options/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+layout_mode = 1

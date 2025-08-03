@@ -63,6 +63,11 @@ layout_mode = 2
 text = "Start Game"
 icon_alignment = 1
 
+[node name="Options Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "Options"
+
 [node name="Exit Game" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
@@ -78,4 +83,5 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Start Game" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Options Button" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Exit Game" to="." method="_on_exit_game_pressed"]

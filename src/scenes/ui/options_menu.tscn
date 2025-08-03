@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2xurt35k1l5y"]
+
+[ext_resource type="PackedScene" uid="uid://bi4tleiooi0i" path="res://src/scenes/ui/DisplayOptions.tscn" id="1_1yutw"]
+[ext_resource type="Script" uid="uid://k0pu1gnieust" path="res://src/scripts/ui/options_menu.gd" id="1_hdtw8"]
+[ext_resource type="PackedScene" uid="uid://bf7r1ldpmimy7" path="res://src/scenes/ui/AudioOptions.tscn" id="2_hdtw8"]
+[ext_resource type="PackedScene" uid="uid://c20xvcjjap7am" path="res://src/scenes/ui/KeybindingSettings.tscn" id="3_r5goa"]
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hdtw8")
+
+[node name="OptionsVbox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OptionsVbox"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="OptionsVbox/HBoxContainer"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="OptionsVbox/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "BACK"
+
+[node name="Control" type="Control" parent="OptionsVbox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OptionsPage" type="TabContainer" parent="OptionsVbox"]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="Display Options" parent="OptionsVbox/OptionsPage" instance=ExtResource("1_1yutw")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Audio Options" parent="OptionsVbox/OptionsPage" instance=ExtResource("2_hdtw8")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Keybindings" parent="OptionsVbox/OptionsPage" instance=ExtResource("3_r5goa")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[connection signal="pressed" from="OptionsVbox/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
