@@ -5,7 +5,8 @@ var display_resolutions: Array = [
 	Vector2i(640, 360),
 	Vector2i(1280, 720),
 	Vector2i(1920, 1080),
-	Vector2i(2560, 1440)
+	Vector2i(2560, 1440),
+	Vector2i(3840, 2160)
 ]
 @onready var display_options: OptionButton = %DisplayOptions
 var cur_item_index: int
