@@ -21,18 +21,22 @@ func toggle_settings_helper():
 		Events.pause_game.emit()
 
 func _on_resume_pressed() -> void:
+	UiClick.play()
 	reset_settings()
 	Events.resume_game.emit()
 
 func _on_options_button_pressed() -> void:
+	UiClick.play()
 	options.show()
 	pause_menu.hide()
 
 func _on_back_button_pressed() -> void:
+	UiClick.play()
 	options.hide()
 	pause_menu.show()
 
 func _on_restart_pressed() -> void:
+	UiClick.play()
 	reset_settings()
 	Events.restart_level.emit()
 	Events.resume_game.emit()

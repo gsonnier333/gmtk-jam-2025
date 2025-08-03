@@ -5,5 +5,4 @@
 [node name="Bgm" type="AudioStreamPlayer"]
 stream = ExtResource("1_11f1p")
 volume_db = 12.0
-autoplay = true
 bus = &"Music"
