@@ -26,7 +26,6 @@ var frames_since_on_ground: int = 0
 
 signal warped(from: Vector2, to: Vector2)
 
-const QUEUE_TICKS: int = 5
 var player_position_queue: PackedVector2Array = []
 var player_animation_frames_queue: Array = []
 var velocity_buffer: PackedVector2Array = []
